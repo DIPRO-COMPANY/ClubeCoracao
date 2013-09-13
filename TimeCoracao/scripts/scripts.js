@@ -12,24 +12,21 @@ function getTeamData(time)
 	switch(parseInt(time))
 	{
 		case 1:
-			var jqxhr = $.ajax("http://www.gazetaesportiva.net/upload/campeonatos/brasileiro_serie-a_html/brasileiro_classificacao_2013.html")
-		    .done(function(data)
-		    {
-				chrome.browserAction.setIcon({ path: "imagens/cruzeiro.png" });
-				new Badge().position(1);	
-		    });
+			
+			$("team-content").load("http://globoesporte.globo.com/futebol/times/atletico-mg");
 			chrome.browserAction.setIcon({ path: "imagens/cruzeiro.png" });
-			new Badge().position(1);
+			new Badge().position(1);	
 			break;
 		case 2:
-			var jqxhr = $.ajax("http://m.globoesporte.globo.com/futebol/brasileirao-serie-a")
-		    .done(function(data)
-		    {
-		    	$("#team-content").load("http://m.globoesporte.globo.com/futebol/brasileirao-serie-a")
-				chrome.browserAction.setIcon({ path: "imagens/atletico_mg.png" });
-				new Badge().position(18);
-		    });
-			break;
+			$("team-content").load("http://globoesporte.globo.com/futebol/times/atletico-pr");
+			chrome.browserAction.setIcon({ path: "imagens/atletico_pr.png" });
+			new Badge().position(18);
+		    break;
+		case 3:
+			$("team-content").load("http://globoesporte.globo.com/futebol/times/bahia");
+			chrome.browserAction.setIcon({ path: "imagens/bahia.png" });
+			new Badge().position(18);
+		    break;
 		default:
 	}
 }
@@ -37,7 +34,7 @@ function getTeamData(time)
 // Executa um evento no carregamento da página.
 document.addEventListener("DOMContentLoaded", function()
 {
-	getTeamData($("#team-select").val());
+	//getTeamData($("#team-select").val());
 });
 
 $(document).ready(function()

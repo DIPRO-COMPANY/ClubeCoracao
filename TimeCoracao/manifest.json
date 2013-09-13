@@ -7,11 +7,10 @@
 
   "permissions": [
     "http://globoesporte.globo.com/*",
-    "http://m.globoesporte.globo.com/*",
-    "http://www.gazetaesportiva.net/*"
+    "http://m.globoesporte.globo.com/*"
   ],
   "browser_action": {
-    "default_icon": "imagens/icon.png",
+    "default_icon": "imagens/brasil.png",
     "default_popup": "index.html"
   }
 }
