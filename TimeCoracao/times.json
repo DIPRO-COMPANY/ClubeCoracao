@@ -1,0 +1,115 @@
+[{
+    "id": 1,
+    "name": "Atlético Mineiro",
+    "icon": "atletico_mg.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/atletico_mg/",
+    "oficialLink": "http://www.atletico.com.br/site/"
+}, {
+    "id": 2,
+    "name": "Atlético Paranaense",
+    "icon": "atletico_pr.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/atletico_pr/",
+    "oficialLink": "http://www.atleticoparanaense.com/"
+}, {
+    "id": 3,
+    "name": "Bahia",
+    "icon": "bahia.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/bahia/",
+    "oficialLink": "http://www.esporteclubebahia.com.br/"
+}, {
+    "id": 4,
+    "name": "Botafogo",
+    "icon": "botafogo.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/botafogo/",
+    "oficialLink": "http://www.botafogo.com.br/"
+}, {
+    "id": 5,
+    "name": "Corinthians",
+    "icon": "corinthians.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/corinthians/",
+    "oficialLink": "http://www.corinthians.com.br/site/capa/"
+}, {
+    "id": 6,
+    "name": "Coritiba",
+    "icon": "coritiba.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/coritiba/",
+    "oficialLink": "http://www.coritiba.com.br/portal/index.php"
+}, {
+    "id": 7,
+    "name": "Criciuma",
+    "icon": "criciuma.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/criciuma/",
+    "oficialLink": "http://www.criciumaec.com.br/"
+}, {
+    "id": 8,
+    "name": "Cruzeiro",
+    "icon": "cruzeiro.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/cruzeiro/",
+    "oficialLink": "http://www.cruzeiro.com.br/"
+}, {
+    "id": 9,
+    "name": "Flamengo",
+    "icon": "flamengo.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/flamengo/",
+    "oficialLink": "http://www.flamengo.com.br/prehome/"
+}, {
+    "id": 10,
+    "name": "Fluminense",
+    "icon": "fluminense.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/fluminense/",
+    "oficialLink": "http://www.fluminense.com.br/"
+}, {
+    "id": 11,
+    "name": "Goiás",
+    "icon": "goias.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/goias/",
+    "oficialLink": "http://www.goiasesporteclube.com.br/"
+}, {
+    "id": 12,
+    "name": "Grêmio",
+    "icon": "gremio.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/gremio/",
+    "oficialLink": "http://www.gremio.net/"
+}, {
+    "id": 13,
+    "name": "Internacional",
+    "icon": "internacional.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/internacional/",
+    "oficialLink": "http://www.internacional.com.br/home.php"
+}, {
+    "id": 14,
+    "name": "Náutico",
+    "icon": "nautico.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/nautico/",
+    "oficialLink": "http://www.nautico-pe.com.br/"
+}, {
+    "id": 15,
+    "name": "Ponte Preta",
+    "icon": "ponte_preta.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/ponte_preta/",
+    "oficialLink": "http://www.pontepreta.com.br/home/"
+}, {
+    "id": 16,
+    "name": "Portuguesa",
+    "icon": "portuguesa.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/portuguesa/",
+    "oficialLink": "http://www.portuguesa.com.br/"
+}, {
+    "id": 17,
+    "name": "São Paulo",
+    "icon": "sao_paulo.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/sao_paulo/",
+    "oficialLink": "http://www.saopaulofc.net/"
+}, {
+    "id": 18,
+    "name": "Vasco",
+    "icon": "vasco.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/vasco/",
+    "oficialLink": "http://www.vasco.com.br/site/"
+}, {
+    "id": 19,
+    "name": "Vitória",
+    "icon": "vitoria.png",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/vitoria/",
+    "oficialLink": "http://www.ecvitoria.com.br/"
+}]
