@@ -23,4 +23,10 @@ function Badge()
 		chrome.browserAction.setBadgeBackgroundColor({color: "#FF0000"});
 		chrome.browserAction.setBadgeText({text: position + ""});
 	};
+
+	this.clear = function(position)
+	{
+		chrome.browserAction.setBadgeBackgroundColor({color: ""});
+		chrome.browserAction.setBadgeText({text: ""});
+	};
 }
