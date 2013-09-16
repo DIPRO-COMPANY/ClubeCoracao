@@ -1,0 +1,90 @@
+@font-face {
+	font-family: QuickExpress;
+	src: url("QuickExpress.ttf");
+}
+
+@font-face {
+    font-family: "Ebrima";
+    src: url("Ebrima.ttf");
+}
+
+@font-face {
+    font-family: "EbrimaBold";
+    src: url("Ebrimabd.ttf");
+}
+
+.atletico-mg {
+	color: #000000;
+}
+
+.atletico-pr {
+	color: #A80000;
+}
+
+.bahia {
+	color: #0099CC;
+}
+
+.botafogo {
+	color: #000000;
+}
+
+.corinthians {
+	color: #000000;
+}
+
+.coritiba {
+	color: #1B9656;
+}
+
+.criciuma {
+	color: #000000;
+}
+
+.cruzeiro {
+	color: #0099CC;
+}
+
+.flamengo {
+	color: #A80000;
+}
+
+.fluminense {
+	color: #A80000;
+}
+
+.goias {
+	color: #1B9656;
+}
+
+.gremio {
+	color: #0099CC;
+}
+
+.internacional {
+	color: #A80000;
+}
+
+.nautico {
+	color: #A80000;
+}
+
+.ponte-preta {
+	color: #000000;
+}
+
+.portuguesa {
+	color: #A80000;
+}
+
+.sao-paulo {
+	color: #A80000;
+}
+
+.vasco {
+	color: #A80000;
+}
+
+.vitoria {
+	color: #A80000;
+}

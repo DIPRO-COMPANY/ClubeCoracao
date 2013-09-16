@@ -1,16 +1,28 @@
 {
-  "manifest_version": 2,
-
-  "name": "Time do Coração",
-  "description": "Viva seu time do coração até mesmo enquanto você navega na internet, sem nem perceber, mantenha-se informado sobre os últimos acontecimentos do seu time, quantidade de pontos e posição na tabela em tempo real.",
-  "version": "1.0",
-
-  "permissions": [
-    "http://globoesporte.globo.com/*",
-    "http://m.globoesporte.globo.com/*"
-  ],
-  "browser_action": {
-    "default_icon": "imagens/brasil.png",
-    "default_popup": "index.html"
-  }
+    "manifest_version": 2,
+    "name": "Clube do Coração",
+    "description": "Viva seu clube do coração mesmo enquanto você navega na internet, sem nem perceber, mantenha-se informado sobre os últimos acontecimentos do seu clube, quantidade de pontos e posição na tabela em tempo real.",
+    "version": "1.0",
+    "icons":
+    {
+        "16": "/imagens/logo.png",
+        "32": "/imagens/logo.png",
+        "48": "/imagens/logo.png",
+        "128": "/imagens/logo.png"
+    },
+    "permissions":
+    [
+        "http://globoesporte.globo.com/*",
+        "http://m.globoesporte.globo.com/*"
+    ],
+    "background":
+    {
+        "scripts": ["/scripts/localstorage.js", "/scripts/background.js"],
+        "persistent": true
+    },
+    "browser_action":
+    {
+        "default_icon": "imagens/brasil.png",
+        "default_popup": "popup.html"
+    }
 }

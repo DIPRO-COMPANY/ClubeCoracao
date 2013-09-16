@@ -2,19 +2,17 @@
     "id": 1,
     "name": "Atlético Mineiro",
     "icon": "atletico_mg.png",
-    "globoLink": "http://globoesporte.globo.com/futebol/times/atletico_mg/",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/atletico-mg/",
     "oficialLink": "http://www.atletico.com.br/site/",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#000000",
+    "className": "atletico-mg",
     "phonetic": "atletico mineiro"
 }, {
     "id": 2,
     "name": "Atlético Paranaense",
     "icon": "atletico_pr.png",
-    "globoLink": "http://globoesporte.globo.com/futebol/times/atletico_pr/",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/atletico-pr/",
     "oficialLink": "http://www.atleticoparanaense.com/",
-    "colorFor": "#000000",
-    "colorBac": "#FF0000",
+    "className": "atletico-pr",
     "phonetic": "atletico paranaense"
 }, {
     "id": 3,
@@ -22,8 +20,7 @@
     "icon": "bahia.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/bahia/",
     "oficialLink": "http://www.esporteclubebahia.com.br/",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#004C99",
+    "className": "bahia",
     "phonetic": "bahia"
 }, {
     "id": 4,
@@ -31,8 +28,7 @@
     "icon": "botafogo.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/botafogo/",
     "oficialLink": "http://www.botafogo.com.br/",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#000000",
+    "className": "botafogo",
     "phonetic": "botafogo"
 }, {
     "id": 5,
@@ -40,8 +36,7 @@
     "icon": "corinthians.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/corinthians/",
     "oficialLink": "http://www.corinthians.com.br/site/capa/",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#000000",
+    "className": "corinthians",
     "phonetic": "corinthians"
 }, {
     "id": 6,
@@ -49,8 +44,7 @@
     "icon": "coritiba.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/coritiba/",
     "oficialLink": "http://www.coritiba.com.br/portal/index.php",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#003300",
+    "className": "coritiba",
     "phonetic": "coritiba"
 }, {
     "id": 7,
@@ -58,8 +52,7 @@
     "icon": "criciuma.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/criciuma/",
     "oficialLink": "http://www.criciumaec.com.br/",
-    "colorFor": "#000000",
-    "colorBac": "#CCCC00",
+    "className": "criciuma",
     "phonetic": "criciuma"
 }, {
     "id": 8,
@@ -67,8 +60,7 @@
     "icon": "cruzeiro.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/cruzeiro/",
     "oficialLink": "http://www.cruzeiro.com.br/",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#0000CC",
+    "className": "cruzeiro",
     "phonetic": "cruzeiro"
 }, {
     "id": 9,
@@ -76,17 +68,15 @@
     "icon": "flamengo.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/flamengo/",
     "oficialLink": "http://www.flamengo.com.br/prehome/",
-    "colorFor": "#000000",
-    "colorBac": "#FF0000",
-    "phonetic": "Flamengo"
+    "className": "flamengo",
+    "phonetic": "flamengo"
 }, {
     "id": 10,
     "name": "Fluminense",
     "icon": "fluminense.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/fluminense/",
     "oficialLink": "http://www.fluminense.com.br/",
-    "colorFor": "#FF0000",
-    "colorBac": "#003300",
+    "className": "fluminense",
     "phonetic": "fluminense"
 }, {
     "id": 11,
@@ -94,8 +84,7 @@
     "icon": "goias.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/goias/",
     "oficialLink": "http://www.goiasesporteclube.com.br/",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#003300",
+    "className": "goias",
     "phonetic": "goias"
 }, {
     "id": 12,
@@ -103,8 +92,7 @@
     "icon": "gremio.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/gremio/",
     "oficialLink": "http://www.gremio.net/",
-    "colorFor": "#000000",
-    "colorBac": "#004C99",
+    "className": "gremio",
     "phonetic": "gremio"
 }, {
     "id": 13,
@@ -112,8 +100,7 @@
     "icon": "internacional.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/internacional/",
     "oficialLink": "http://www.internacional.com.br/home.php",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#FF0000",
+    "className": "internacional",
     "phonetic": "internacional"
 }, {
     "id": 14,
@@ -121,8 +108,7 @@
     "icon": "nautico.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/nautico/",
     "oficialLink": "http://www.nautico-pe.com.br/",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#FF0000",
+    "className": "nautico",
     "phonetic": "nautico"
 }, {
     "id": 15,
@@ -130,8 +116,7 @@
     "icon": "ponte_preta.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/ponte_preta/",
     "oficialLink": "http://www.pontepreta.com.br/home/",
-    "colorFor": "#FFFFFF",
-    "colorBac": "#000000",
+    "className": "ponte-preta",
     "phonetic": "ponte preta"
 }, {
     "id": 16,
@@ -139,8 +124,7 @@
     "icon": "portuguesa.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/portuguesa/",
     "oficialLink": "http://www.portuguesa.com.br/",
-    "colorFor": "#FF0000",
-    "colorBac": "#003300",
+    "className": "portuguesa",
     "phonetic": "portuguesa"
 }, {
     "id": 17,
@@ -148,8 +132,7 @@
     "icon": "sao_paulo.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/sao_paulo/",
     "oficialLink": "http://www.saopaulofc.net/",
-    "colorFor": "#FF0000",
-    "colorBac": "#000000",
+    "className": "sao-paulo",
     "phonetic": "sao paulo"
 }, {
     "id": 18,
@@ -157,8 +140,7 @@
     "icon": "vasco.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/vasco/",
     "oficialLink": "http://www.vasco.com.br/site/",
-    "colorFor": "#FF0000",
-    "colorBac": "#000000",
+    "className": "vasco",
     "phonetic": "vasco"
 }, {
     "id": 19,
@@ -166,7 +148,6 @@
     "icon": "vitoria.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/vitoria/",
     "oficialLink": "http://www.ecvitoria.com.br/",
-    "colorFor": "#000000",
-    "colorBac": "#FF0000",
+    "className": "vitoria",
     "phonetic": "vitoria"
 }]
