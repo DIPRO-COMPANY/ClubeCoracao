@@ -37,7 +37,7 @@ function mainHome()
 	getTeams();
 }
 
-// Busca os dados dos times da primeira divisão do brasileirão.
+// Busca os dados dos times da primeira divisï¿½o do brasileirï¿½o.
 function getTeams()
 {
 	$.getJSON("../times.json", function(data)
@@ -51,7 +51,7 @@ function getTeams()
 	});
 }
 
-// Popula o carrossel para seleção dos times de acordo com os dados retornados pelo json.
+// Popula o carrossel para seleï¿½ï¿½o dos times de acordo com os dados retornados pelo json.
 function populateCarousel(data)
 {
 	var max = data.length;
@@ -78,7 +78,7 @@ function startCarousel(data)
 	}).attr("class", "visibility-visible");
 }
 
-//Recupera os dados do time como nome e cores para exibição no hint.
+//Recupera os dados do time como nome e cores para exibiï¿½ï¿½o no hint.
 function getTeamData(data, index)
 {
 	var hint = $("#home-hint");

@@ -2,7 +2,7 @@ var teamId, name, icon, globoLink, oficialLink, className, phonetic;
 
 function main()
 {
-	//new LocalStorage().set("teamId", 0);
+	new LocalStorage().set("teamId", 0);
 
 	recoverTeamData();
 
@@ -11,14 +11,14 @@ function main()
 	// Escuta as mensagens das popups.
 	chrome.extension.onMessage.addListener(function(request, sender, sendResponse)
 	{
-		// Salva o id do time selecionado e abre a sua página de informações.
+		// Salva o id do time selecionado e abre a sua pÃ¡gina de informaÃ§Ãµes.
 		if(request.type == "popup" && request.action == "saveTeamData")
 		{
 			saveTeamData(request);
 	
 			var popups = chrome.extension.getViews({type: "popup"});
 			
-			// Carrega a página de informações do time selecionado.
+			// Carrega a pÃ¡gina de informaÃ§Ãµes do time selecionado.
 			if(popups.length)
 				popups[0].loadPage(teamId);
 
@@ -29,7 +29,7 @@ function main()
 	});
 }
 
-//Define o ícone do browseraction como o escudo do time escolhido.
+//Define o Ã­cone do browseraction como o escudo do time escolhido.
 function setTeamIcon(id)
 {
 	chrome.browserAction.setIcon({path: "/imagens/" + icon});
