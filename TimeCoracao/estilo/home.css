@@ -1,7 +1,7 @@
 body
 {
-    margin: 0px;
-    padding: 0px;
+    width: 350px!important;
+    height: 310px!important;
 }
 
 p
@@ -13,18 +13,20 @@ p
 
 #home-logo
 {
-    width: 373px;
+    width: 350px;
     height: 129px;
     background-image: url('/imagens/cdc.png');
-    margin: 17px 0px 0px 37px;
+    background-size: 100% 100%;
+    margin: 0px 0px 0px 1px;
 }
 
 #home-select-bar
 {
-    width: 373px;
+    width: 340px;
     height: 29px;
     background-image: url('/imagens/select.png');
-    margin: 50px 0px 20px 37px;
+    background-size: 100% 100%;
+    margin: 40px 0px 10px 7px;
 }
 
 #home-hint
@@ -36,45 +38,44 @@ p
     margin-top: 0px;
 }
 
-#home-slider-code
+#home-team-select
 {
     height: 70px;
-    width: 450px;
     overflow: hidden;
     padding: 0px;
 }
 
-#home-slider-code .viewport
+#home-team-select .viewport
 {
     float: left;
-    width: 240px;
+    width: 184px;
     height: 70px;
     overflow: hidden;
     position: relative;
 }
 
-#home-slider-code .buttons
+#home-team-select .buttons
 {
     display: block;
     float: left;
 }
 
-#home-slider-code .next
+#home-team-select .next
 {
-    margin: 10px 0px 0px 10px;
+    margin: 10px 0px 0px 5px;
 }
 
-#home-slider-code .prev
+#home-team-select .prev
 {
-    margin: 10px 10px 0px 73px;
+    margin: 10px 5px 0px 55px;
 }
 
-#home-slider-code .disable
+#home-team-select .disable
 {
     visibility: hidden;
 }
 
-#home-slider-code .overview
+#home-team-select .overview
 {
     list-style: none;
     position: absolute;
@@ -83,31 +84,41 @@ p
     top: 0px;
 }
 
-#home-slider-code .overview li
+#home-team-select .overview li
 {
     float: left;
-    margin: 0px 21px 0px 94px;
+    margin: 0px 21px 0px 66px;
     padding: 1px;
     height: 80px;
-    width: 236px;
+    width: 184px;
 }
 
-.hint
+#home-hint
+{
+    font-family: QuickExpress;
+    font-size: 10pt;
+    text-transform: uppercase;
+    padding: 7px 0px 7px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+#home-hint.hint
 {
     cursor: default;
 }
 
-.click
+#home-hint.click
 {
     cursor: pointer;
 }
 
-.visibility-hidden
+#home-hint.click:HOVER
 {
-    visibility: hidden;
+    font-size: 12pt;
+    -webkit-transition: font-size 0.2s ease;
 }
 
-.visibility-visible
+.hidden
 {
-    visibility: visible;
+    visibility: hidden;
 }

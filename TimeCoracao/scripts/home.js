@@ -1,100 +1,78 @@
+var teamDataAux;
+
 function mainHome()
 {
-	// Defini os eventos do hint.
-	$("#home-hint").mouseenter(function()
-	{
-		if($(this).attr("class").indexOf("click") > -1)
-		{
-			phonetic = $(this).html();
-			$(this).html("escolher");
-		}
-	})
-	.mouseout(function()
-	{
-		if($(this).attr("class").indexOf("click") > -1)
-			$(this).html(phonetic);
-	})
-	.click(function()
-	{
-		if(teamId > 0)
-		{
-			// Envia para o background o time escolhido.
-			chrome.extension.sendMessage(
-			{
-				type: "popup",
-				action: "saveTeamData",
-				teamId: teamId,
-				name: name,
-				icon: icon,
-				globoLink: globoLink,
-				oficialLink: oficialLink,
-				className: className,
-				phonetic: phonetic
-			}, function(){});
-		}
-	});
+    $("#home-hint").click(function()
+    {
+        // Envia os dados do time escolhido para o background para serem armazenados.
+        chrome.extension.sendMessage(
+        {
+            action: "saveTeamData",
+            teamData: teamDataAux
+        },
+        function(response)
+        {
+            loadPage(teamDataAux);
+        });
+    });
 
-	getTeams();
+    $("#home-team-select a").click(function()
+    {
+        var hint = $("#home-hint");
+
+        hint.attr("class", "hint " + teamDataAux.className)
+        .fadeOut();
+    });
+
+    chrome.extension.sendMessage(
+    {
+        action: "getJSON",
+        url: "/json/times.json"
+    },
+    function(teamsListData)
+    {
+        // Recuperada a lista de times via json, popula o carousel, com os escudos dos mesmos.
+        populateCarouselHome(teamsListData);
+
+        // Inicia o plugin de carrossel e configura seu callback.
+        startCarouselHome(teamsListData);
+    });
 }
 
-// Busca os dados dos times da primeira divis�o do brasileir�o.
-function getTeams()
+function populateCarouselHome(teamsListData)
 {
-	$.getJSON("../times.json", function(data)
-	{
-		populateCarousel(data);
-		startCarousel(data);
-	})
-	.error(function()
-	{
-		$("#home-hint").html("erro ao carregar os dados");
-	});
+    var max = teamsListData.length;
+    var teamsList = "";
+
+    for(var index = 0; index < max; index++)
+    {
+        teamsList += "<li><img src=\"/imagens/" + teamsListData[index].icon + "\" /></li>";
+    }
+
+    $("ul.overview").append(teamsList);
 }
 
-// Popula o carrossel para sele��o dos times de acordo com os dados retornados pelo json.
-function populateCarousel(data)
+function startCarouselHome(teamsListData)
 {
-	var max = data.length;
-	var option = "";
+    $("#home-team-select").tinycarousel(
+    {
+        start:0,
+        duration:800,
+        callback: function(element, index)
+        {
+            // Exibe o nome do time em foco e armazena seus dados.
+            showTeam(teamsListData[index]);
 
-	for(var idx = 0; idx < max; idx++)
-	{
-		option += "<li id=\"" + data[idx].id + "\"><img src=\"/imagens/" + data[idx].icon + "\" /></li>";
-	}
-
-	$(".overview").append(option);
+            teamDataAux = teamsListData[index];
+        }
+    });
 }
 
-function startCarousel(data)
+function showTeam(teamData)
 {
-	$("#home-slider-code").tinycarousel(
-	{
-		start:0,
-		duration:1000,
-		callback: function(element, index)
-		{
-			getTeamData(data, index);
-		}
-	}).attr("class", "visibility-visible");
-}
+    var hint = $("#home-hint");
 
-//Recupera os dados do time como nome e cores para exibi��o no hint.
-function getTeamData(data, index)
-{
-	var hint = $("#home-hint");
-
-	teamId = data[index].id;
-	name = data[index].name;
-	icon = data[index].icon;
-	globoLink = data[index].globoLink;
-	oficialLink = data[index].oficialLink;
-	className = data[index].className;
-	phonetic = data[index].phonetic;
-
-	if(hint.html() != "escolher")
-	{
-		hint.html(phonetic);
-	}
-
-	hint.attr("class", "click " + className);
+    hint.attr("class", "click " + teamData.className)
+    .html(teamData.phonetic)
+    .fadeIn();
 }

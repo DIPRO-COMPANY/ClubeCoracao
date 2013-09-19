@@ -1,0 +1,24 @@
+a, a:ACTIVE, a:HOVER, a:FOCUS
+{
+    color: #267FAE;
+}
+
+#info-logo
+{
+    background-image: url("/imagens/cruzeiro.png");
+}
+
+.info-title
+{
+    text-shadow: 0px 0px 10px #267FAE;
+}
+
+.time-cor
+{
+    color: #267FAE;
+}
+
+.info-header-bar
+{
+    background: -webkit-linear-gradient(left,  rgba(30,87,153,1) 0%,rgba(125,185,232,0) 100%);
+}

@@ -1,72 +1,140 @@
-#info-main
+body
 {
-	width: 450px;
-	height: auto;
-	padding: 10px 2px 2px 5px;
-	height: 100%;
-}
-
-#info-top
-{
-	border-bottom: 1px solid rgb(112, 112, 112);
-	width: 448px;
-	height: 58px;
-	margin-bottom: -10px;
-}
-
-#info-logo
-{
-	background-image: url("/imagens/brasil.png");
-	background-repeat: no-repeat;
-	width: 55px;
-	height: 55px;
-}
-
-#info-lider
-{
-    background-image: url("/imagens/lider.png");
-    position: absolute;
-    background-repeat: no-repeat;
-    width: 70px;
-    height: 34px;
-    float: left;
-    margin: -18px 0px 0px 7px;
-}
-
-.info-title
-{
-    color: #000000;
-    font-family: "QuickExpress";
-    font-size: 15pt;
-    text-align: left;
-    text-transform:uppercase;
-    margin: -40px 0px 0px 60px;
-}
-
-#info-links
-{
-	width: 448px;
-	height: 55px;
-	line-height: 15px;
-	float: right;
-	position: absolute;
-	margin: -8px 0px 0px 0px;
-	text-align: right;
+    width: 450px!important;
+    height: 580px!important;
 }
 
 a, a:ACTIVE, a:HOVER, a:FOCUS
 {
-	font-family: "Ebrima";
-	font-size: 8pt;
-	font-weight: bolder;
-	text-decoration: none;
-	cursor: pointer;
+    font-family: "Ebrima";
+    font-size: 8pt;
+    font-weight: bolder;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+img
+{
+    width:100%;
+    height: auto;
+}
+
+#info-main
+{
+    padding:10px 0px 0px 0px;
+}
+
+#info-top
+{
+    border-bottom: 1px solid rgb(112, 112, 112);
+    width: 450px;
+    height: 58px;
+    margin-bottom: -10px;
+}
+
+#info-logo
+{
+    background-image: url("/imagens/brasil.png");
+    background-repeat: no-repeat;
+    width: 55px;
+    height: 55px;
+}
+
+#info-lider
+{
+    display: none;
+    background-image: url("/imagens/lider.png");
+    position: absolute;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 34px;
+    float: left;
+    margin: -18px 0px 0px 7px;
+    overflow: hidden;
+}
+
+#info-lider:HOVER
+{
+    overflow: visible;
+}
+
+#info-lider span
+{
+    position: absolute;
+    width: 100px;
+    height: auto;
+    font-family: "QuickExpress";
+    font-size: 8pt;
+    left: 42px;
+    top: 10px;
+    color: goldenrod;
+}
+
+#info-links
+{
+    width: 450px;
+    height: 55px;
+    line-height: 15px;
+    float: right;
+    position: absolute;
+    margin: -8px 0px 0px 0px;
+    text-align: right;
+    text-transform: lowercase;
 }
 
 #info-content
 {
     width:450px;
     margin: 20px 0px 0px 0px;
+}
+
+#info-proximo-jogo
+{
+    width: 450px;
+    height: auto;
+    margin: 0px 0px 0px 0px;
+}
+
+#info-casa
+{
+    width: 24px;
+    height: 24px;
+    float: right;
+    position: absolute;
+    margin: 0px 0px 0px 280px;
+}
+
+#info-confronto
+{
+    width: 24px;
+    height: 24px;
+    float: right;
+    background-image: url("/imagens/vs.png");
+    background-size:100% 100%;
+    -webkit-background-size: 100% 100%;
+    position: absolute;
+    margin: 1px 0px 0px 310px;
+}
+
+#info-fora
+{
+    width: 24px;
+    height: 24px;
+    float: right;
+    position: absolute;
+    margin: 0px 0px 0px 340px;
+}
+
+
+.info-title
+{
+    color: #000000;
+    text-shadow: 0px 0px 10px #000000;
+    font-family: "QuickExpress";
+    font-size: 15pt;
+    text-align: left;
+    text-transform:uppercase;
+    margin: -40px 0px 0px 60px;
 }
 
 .info-header-title
@@ -79,23 +147,10 @@ a, a:ACTIVE, a:HOVER, a:FOCUS
 
 .info-header-bar
 {
-	width: 450px;
-	height:1px;
-	margin:-3px 0px 9px 0px;
-	background: -moz-linear-gradient(left,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0)));
-	background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
-	background: -o-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
-	background: -ms-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
-	background: linear-gradient(to right,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 );
-}
-
-#info-proximo-jogo
-{
     width: 450px;
-    height: auto;
-    margin: 0px 0px 0px 0px;
+    height:1px;
+    margin:-3px 0px 9px 0px;
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
 }
 
 .info-texto-negrito
@@ -110,50 +165,14 @@ a, a:ACTIVE, a:HOVER, a:FOCUS
     margin: 0px 0px 0px 0px;
 }
 
-#info-casa
-{
-	width: 24px;
-	height: 24px;
-	float: right;
-	position: absolute;
-	margin: 0px 0px 0px 280px;
-}
-
-#info-confronto
-{
-	width: 24px;
-	height: 24px;
-	float: right;
-	background-image: url("/imagens/vs.png");
-	background-size:100% 100%;
-	-webkit-background-size: 100% 100%;
-	-o-background-size: 100% 100%;
-	-khtml-background-size: 100% 100%;
-	-moz-background-size: 100% 100%;
-	position: absolute;
-	margin: 1px 0px 0px 310px;
-}
-
-#info-fora
-{
-	width: 24px;
-	height: 24px;
-	float: right;
-	position: absolute;
-	margin: 0px 0px 0px 340px;
-}
-
+/* Estilo usado no carrossel de últimas notícias. *****************/
 #info-ultimas_noticias
 {
-	overflow:hidden;
-	width:450px;
-	margin: 0px 0px 0px 0px;
-	padding: 0px 0px 0px 0px;
+    overflow:hidden;
+    width:450px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
 }
-
-#info-ultimas_noticias .buttons{}
-#info-ultimas_noticias .next{}
-#info-ultimas_noticias .disable{}
 
 #info-ultimas_noticias .viewport
 {
@@ -162,79 +181,121 @@ a, a:ACTIVE, a:HOVER, a:FOCUS
     height: 199px;
     overflow: hidden;
     position: relative;
+    -webkit-border-radius: 3px;
 }
 
 #info-ultimas_noticias .overview
 {
-	list-style: none;
-	position: absolute;
-	padding: 0px;
-	margin: 0px 0px 0px 0px;
+    list-style: none;
+    position: absolute;
+    padding: 0px;
+    margin: 0px 0px 0px 0px;
 }
 
-#info-ultimas_noticias .overview div
+#info-ultimas_noticias .overview-item
 {
-	float: left;
-	margin: 0px 0px 0px 0px;
-	padding: 0px;
-	height: auto;
-	width: 330px;
+    float: left;
+    margin: 0px 0px 0px 0px;
+    padding: 0px;
+    height: auto;
+    width: 330px;
 }
 
 #info-ultimas_noticias .pager
 {
-	list-style: none;
-	float:right;
-	width:100px;
-	height: auto;
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
-}
-
-#info-ultimas_noticias .pager-mask
-{
+    list-style: none;
+    float: right;
     width: 100px;
-    height: 63px;
-    position: absolute;
-    float: left;
-}
-
-#info-ultimas_noticias div.pager-mask:HOVER
-{
-background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 44%, rgba(0,0,0,0.47) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0)), color-stop(44%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.47)));
-background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 44%,rgba(0,0,0,0.47) 100%);
-background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 44%,rgba(0,0,0,0.47) 100%);
-background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 44%,rgba(0,0,0,0.47) 100%);
-background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 44%,rgba(0,0,0,0.47) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#78000000',GradientType=1 );
-
-
-
-}
-
-#info-ultimas_noticias .pagenum
-{
-    width:auto;
     height: auto;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
 }
 
-img
+#info-ultimas_noticias .pager-item
 {
-    width:100%;
+    width: 100px;
     height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#info-ultimas_noticias .pager div.pager-item:HOVER
+{
+    overflow: visible;
+    position: relative;
+}
+
+#info-ultimas_noticias .pager div.pager-mask
+{
+    width: 100px;
+    height: 63px;
+    position: absolute;
+    float: right;
+}
+
+#info-ultimas_noticias .pager div.pager-mask:HOVER
+{
+    -webkit-border-radius: 3px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.2)), color-stop(1%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0.2)));
+}
+
+#info-ultimas_noticias .pager-ativo
+{
+    display: none;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    margin: 5px 0px 0px 85px;
+    float: right;
+}
+
+.display-block
+{
+    display: block!important;
+}
+
+#info-ultimas_noticias .pager-seta
+{
+    width: 10px;
+    height: 15px;
+    position: absolute;
+    margin: 25px 0px 0px -15px;
+    position: absolute;
+}
+
+#info-ultimas_noticias .pager-link img
+{
+    -webkit-border-radius: 3px;
 }
 
 #info-ultimas_noticias .destaque
 {
-	width: 330px;
-	height: auto;
-	position: absolute;
-	color: #FFFFFF;
-	font-family: "Ebrima";
-	font-size: 14pt;
-	font-weight: bold;
-	padding: 0px 5px 0px 5px;
+    text-shadow: 1px 1px 2px #000000;
+    filter: dropshadow(color=#000000, offx=1, offy=1);
+    width: 320px;
+    height: auto;
+    position: absolute;
+    color: #FFFFFF;
+    font-family: "Ebrima";
+    text-transform: uppercase;
+    font-size: 14pt;
+    font-weight: bold;
+    padding: 0px 5px 0px 5px;
 }
+
+#info-ultimas_noticias .sub-text
+{
+    text-shadow: 1px 1px 2px #000000;
+    filter: dropshadow(color=#000000, offx=1, offy=1);
+
+    width: 320px;
+    height: 28px;
+    position: absolute;
+    color: #FFFFFF;
+    font-family: "Ebrima";
+    font-size: 8pt;
+    font-weight: bold;
+    padding: 0px 5px 0px 5px;
+    margin: -45px 0px 0px 0px;
+}
+/******************************************************************/

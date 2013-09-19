@@ -1,0 +1,24 @@
+a, a:ACTIVE, a:HOVER, a:FOCUS
+{
+    color: #000000;
+}
+
+#info-logo
+{
+    background-image: url("/imagens/atletico_mg.png");
+}
+
+.info-title
+{
+    text-shadow: 0px 0px 10px #000000;
+}
+
+.time-cor
+{
+    color: #000000;
+}
+
+.info-header-bar
+{
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+}

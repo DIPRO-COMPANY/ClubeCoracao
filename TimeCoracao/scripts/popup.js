@@ -1,38 +1,35 @@
-var teamId, name, icon, globoLink, oficialLink, className, phonetic;
-
-document.addEventListener("DOMContentLoaded", function()
+function main()
 {
-	recoverTeamDataBackground();
+    $.ajaxSetup({ cache: false });
 
-	$.ajaxSetup({ cache: false });
-
-	loadPage(teamId);
-});
-
-function loadPage(id)
-{
-	if(id == 0)
-	{
-		// Carrega a p·gina inicial e executa a funÁ„o main dentro do .js referente ao arquivo.
-		$("#content").load("home.html", function(){mainHome();});
-	}
-	else
-	{
-		// Carrega a p·gina de informaÁ„o do time e executa a funÁ„o main dentro do .js referente ao arquivo.
-		$("#content").load("info.html", function(){mainInfo();});
-	}
+    // Recupera os dados armazenados na local storage e carrega a popup de acordo com os dados retornados.
+    chrome.extension.sendMessage({ action: "getTeamData" }, function(teamData){ loadPage(teamData); });
 }
 
-// Recupera os dados do time da p·gina de backgrund.
-function recoverTeamDataBackground()
+function loadPage(teamData)
 {
-	var backPage = chrome.extension.getBackgroundPage();
-	
-	teamId = backPage.teamId;
-	name = backPage.name;
-	icon = backPage.icon;
-	globoLink = backPage.globoLink;
-	oficialLink = backPage.oficialLink;
-	className = backPage.className;
-	phonetic = backPage.phonetic;
+    var cssHome = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/home.css\">";
+    var cssInfo = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/info.css\">";
+
+    // Remove as folhas de estilo da popup.html.
+    $(cssHome).remove();
+    $(cssInfo).remove();
+
+    if(teamData.id === 0)
+    {
+        $(cssHome).appendTo("head");
+
+        // Carrega a p√°gina inicial e executa a fun√ß√£o mainHome dentro do home.js.
+        $("#content").load("home.html", function(){ mainHome(); });
+    }
+    else
+    {
+        $(cssInfo).appendTo("head");
+
+        // Carrega a p√°gina de informa√ß√£o do time e executa a fun√ß√£o mainInfo dentro do info.js.
+        $("#content").load("info.html", function(){ mainInfo(teamData); });
+    }
 }
+
+// Executa a fun√ß√£o main sempre que a popup da extens√£o √© aberta.
+document.addEventListener("DOMContentLoaded", function(){ main(); });

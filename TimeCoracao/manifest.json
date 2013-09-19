@@ -12,17 +12,17 @@
     },
     "permissions":
     [
-        "http://globoesporte.globo.com/*",
-        "http://m.globoesporte.globo.com/*"
+        "http://*/*",
+        "https://*/*"
     ],
     "background":
     {
-        "scripts": ["/scripts/localstorage.js", "/scripts/background.js"],
+        "scripts": ["/scripts/localstorage.js", "/scripts/badge.js", "/scripts/background.js"],
         "persistent": true
     },
     "browser_action":
     {
-        "default_icon": "imagens/brasil.png",
-        "default_popup": "popup.html"
+        "default_icon": "/imagens/brasil.png",
+        "default_popup": "/html/popup.html"
     }
 }

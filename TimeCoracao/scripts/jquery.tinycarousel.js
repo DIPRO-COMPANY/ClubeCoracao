@@ -11,7 +11,7 @@
  * Depends on library: jQuery
  *
  */
-;(function ($) 
+;(function($)
 {
     $.tiny = $.tiny || { };
     
@@ -67,7 +67,7 @@
 
             if(options.pager)
             {
-                var oNumbers = $('.pagenum', oPager);
+                var oNumbers = $('.pager-link', oPager);
                 oNumbers.removeClass('active');
                 $(oNumbers[iCurrent]).addClass('active');
             }           
@@ -75,7 +75,7 @@
 
         function setPager( oEvent )
         {
-            if( $( this ).hasClass( "pagenum" ) )
+            if( $( this ).hasClass( "pager-link" ) )
             { 
                 oSelf.move( parseInt( this.rel, 10 ), true ); 
             }

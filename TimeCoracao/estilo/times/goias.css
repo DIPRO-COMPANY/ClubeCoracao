@@ -1,0 +1,24 @@
+a, a:ACTIVE, a:HOVER, a:FOCUS
+{
+    color: #1B9656;
+}
+
+#info-logo
+{
+    background-image: url("/imagens/goias.png");
+}
+
+.info-title
+{
+    text-shadow: 0px 0px 10px #1B9656;
+}
+
+.time-cor
+{
+    color: #1B9656;
+}
+
+.info-header-bar
+{
+    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+}

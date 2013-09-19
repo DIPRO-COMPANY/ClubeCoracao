@@ -1,19 +1,19 @@
 [{
     "id": 1,
-    "name": "Atlético Mineiro",
+    "name": "Atlético MG",
     "icon": "atletico_mg.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/atletico-mg/",
     "oficialLink": "http://www.atletico.com.br/site/",
     "className": "atletico-mg",
-    "phonetic": "atletico mineiro"
+    "phonetic": "atletico-mg"
 }, {
     "id": 2,
-    "name": "Atlético Paranaense",
+    "name": "Atlético PR",
     "icon": "atletico_pr.png",
     "globoLink": "http://globoesporte.globo.com/futebol/times/atletico-pr/",
     "oficialLink": "http://www.atleticoparanaense.com/",
     "className": "atletico-pr",
-    "phonetic": "atletico paranaense"
+    "phonetic": "atletico-pr"
 }, {
     "id": 3,
     "name": "Bahia",
@@ -114,7 +114,7 @@
     "id": 15,
     "name": "Ponte Preta",
     "icon": "ponte_preta.png",
-    "globoLink": "http://globoesporte.globo.com/futebol/times/ponte_preta/",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/ponte-preta/",
     "oficialLink": "http://www.pontepreta.com.br/home/",
     "className": "ponte-preta",
     "phonetic": "ponte preta"
@@ -130,7 +130,7 @@
     "id": 17,
     "name": "São Paulo",
     "icon": "sao_paulo.png",
-    "globoLink": "http://globoesporte.globo.com/futebol/times/sao_paulo/",
+    "globoLink": "http://globoesporte.globo.com/futebol/times/sao-paulo/",
     "oficialLink": "http://www.saopaulofc.net/",
     "className": "sao-paulo",
     "phonetic": "sao paulo"
