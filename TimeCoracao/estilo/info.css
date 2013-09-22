@@ -34,13 +34,27 @@ img
 
 #info-logo
 {
+    background-image: url("/imagens/logo.png");
+    background-repeat: no-repeat;
+    height: 55px;
+    width: 114px;
+    background-size:100% 100%;
+    -webkit-background-size: 100% 100%;
+}
+
+#team-streamer
+{
     background-image: url("/imagens/brasil.png");
     background-repeat: no-repeat;
     width: 55px;
     height: 55px;
+    float:right;
+    position: absolute;
+    left: 135px;
+    top: 20px;
 }
 
-#info-lider
+#team-leader
 {
     display: none;
     background-image: url("/imagens/lider.png");
@@ -51,14 +65,15 @@ img
     float: left;
     margin: -18px 0px 0px 7px;
     overflow: hidden;
+    z-index: 2;
 }
 
-#info-lider:HOVER
+#team-leader:HOVER
 {
     overflow: visible;
 }
 
-#info-lider span
+#team-leader span
 {
     position: absolute;
     width: 100px;
@@ -88,56 +103,18 @@ img
     margin: 20px 0px 0px 0px;
 }
 
-#info-proximo-jogo
-{
-    width: 450px;
-    height: auto;
-    margin: 0px 0px 0px 0px;
-}
-
-#info-casa
-{
-    width: 24px;
-    height: 24px;
-    float: right;
-    position: absolute;
-    margin: 0px 0px 0px 280px;
-}
-
-#info-confronto
-{
-    width: 24px;
-    height: 24px;
-    float: right;
-    background-image: url("/imagens/vs.png");
-    background-size:100% 100%;
-    -webkit-background-size: 100% 100%;
-    position: absolute;
-    margin: 1px 0px 0px 310px;
-}
-
-#info-fora
-{
-    width: 24px;
-    height: 24px;
-    float: right;
-    position: absolute;
-    margin: 0px 0px 0px 340px;
-}
-
-
-.info-title
+.page-title
 {
     color: #000000;
-    text-shadow: 0px 0px 10px #000000;
+    text-shadow: 0px 0px 7px #000000;
     font-family: "QuickExpress";
     font-size: 15pt;
     text-align: left;
     text-transform:uppercase;
-    margin: -40px 0px 0px 60px;
+    margin: -40px 0px 0px 180px;
 }
 
-.info-header-title
+.header-title
 {
     color: #000000;
     font-family: "QuickExpress";
@@ -145,28 +122,24 @@ img
     text-align: left;
 }
 
-.info-header-bar
+.header-bar
 {
     width: 450px;
     height:1px;
     margin:-3px 0px 9px 0px;
-    background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(left,  rgba(0, 0, 0, 0.65) 0%,rgba(0, 0, 0, 0) 100%);
 }
 
-.info-texto-negrito
+.text-bold
 {
     color: #666666;
     font-family: "Ebrima";
-    font-size: 7.5pt;
+    font-size: 8pt;
     font-weight: bold;
-    text-align: left;
     line-height: 10pt;
-    text-align: left;
-    margin: 0px 0px 0px 0px;
 }
 
-/* Estilo usado no carrossel de últimas notícias. *****************/
-#info-ultimas_noticias
+#info-latest-news
 {
     overflow:hidden;
     width:450px;
@@ -174,7 +147,7 @@ img
     padding: 0px 0px 0px 0px;
 }
 
-#info-ultimas_noticias .viewport
+#info-latest-news .viewport
 {
     float: left;
     width: 330px;
@@ -184,15 +157,15 @@ img
     -webkit-border-radius: 3px;
 }
 
-#info-ultimas_noticias .overview
+.overview
 {
     list-style: none;
     position: absolute;
-    padding: 0px;
+    padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
 }
 
-#info-ultimas_noticias .overview-item
+#info-latest-news .overview-item
 {
     float: left;
     margin: 0px 0px 0px 0px;
@@ -201,7 +174,7 @@ img
     width: 330px;
 }
 
-#info-ultimas_noticias .pager
+#info-latest-news .pager
 {
     list-style: none;
     float: right;
@@ -211,7 +184,7 @@ img
     margin: 0px 0px 0px 0px;
 }
 
-#info-ultimas_noticias .pager-item
+#info-latest-news .pager-item
 {
     width: 100px;
     height: auto;
@@ -219,27 +192,44 @@ img
     overflow: hidden;
 }
 
-#info-ultimas_noticias .pager div.pager-item:HOVER
+#info-latest-news .pager div.pager-item:HOVER
 {
     overflow: visible;
     position: relative;
 }
 
-#info-ultimas_noticias .pager div.pager-mask
+#info-latest-news .pager div.pager-mask
 {
     width: 100px;
     height: 63px;
     position: absolute;
     float: right;
+    z-index: 1;
 }
 
-#info-ultimas_noticias .pager div.pager-mask:HOVER
+#info-latest-news .pager div.pager-mask:HOVER
 {
     -webkit-border-radius: 3px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.2)), color-stop(1%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0.2)));
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0, 0, 0, 0.2)), color-stop(1%,rgba(0, 0, 0, 0.2)), color-stop(100%,rgba(0, 0, 0, 0.2)));
 }
 
-#info-ultimas_noticias .pager-ativo
+#info-latest-news .pager-title
+{
+    font-size: 7pt;
+    font-family: "Ebrima";
+    color: #FFFFFF;
+    position: absolute;
+    width: 100%;
+    background-color: #000000;
+    padding: 0px 0px 2px 0px;
+    text-align: center;
+    bottom: 5px;
+    text-transform: uppercase;
+    border-radius: 0px 0px 3px 3px;
+    z-index: 2;
+}
+
+#info-latest-news .pager-ativo
 {
     display: none;
     width: 10px;
@@ -247,14 +237,10 @@ img
     position: absolute;
     margin: 5px 0px 0px 85px;
     float: right;
+    z-index: 2;
 }
 
-.display-block
-{
-    display: block!important;
-}
-
-#info-ultimas_noticias .pager-seta
+#info-latest-news .pager-seta
 {
     width: 10px;
     height: 15px;
@@ -263,12 +249,12 @@ img
     position: absolute;
 }
 
-#info-ultimas_noticias .pager-link img
+#info-latest-news .pager-link img
 {
     -webkit-border-radius: 3px;
 }
 
-#info-ultimas_noticias .destaque
+#info-latest-news .highlight
 {
     text-shadow: 1px 1px 2px #000000;
     filter: dropshadow(color=#000000, offx=1, offy=1);
@@ -283,11 +269,11 @@ img
     padding: 0px 5px 0px 5px;
 }
 
-#info-ultimas_noticias .sub-text
+#info-latest-news .sub-text
 {
     text-shadow: 1px 1px 2px #000000;
     filter: dropshadow(color=#000000, offx=1, offy=1);
-
+    overflow: hidden;
     width: 320px;
     height: 28px;
     position: absolute;
@@ -298,4 +284,259 @@ img
     padding: 0px 5px 0px 5px;
     margin: -45px 0px 0px 0px;
 }
-/******************************************************************/
+
+.separator
+{
+    width: 1px;
+    height: 190px;
+    float: right;
+    position: absolute;
+    left: 347px;
+    margin-top: 6px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 1) 49%,rgba(0, 0, 0, 0) 100%);
+}
+
+#leaderboard
+{
+    font-family: "Ebrima";
+    line-height: 14pt;
+    width: 450px;
+    height: auto;
+    padding: 0px 0px 0px 0px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+#leaderboard thead tr
+{
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: center;
+    line-heigth: 18px;
+    border: 2px solid #FFFFFF;
+}
+
+#leaderboard tbody tr
+{
+    font-size: 8pt;
+    text-align: center;
+    border: 2px solid #FFFFFF;
+}
+
+#leaderboard .empty-head
+{
+    border-radius: 6px 0px 0px 6px;
+}
+
+#leaderboard .ranking
+{
+    font-weight: bold;
+    width: 22px;
+    border-radius: 6px 0px 0px 6px;
+}
+
+#leaderboard .name
+{
+    width:auto;
+    text-align: left;
+}
+
+#leaderboard .score
+{
+    width:20px;
+    font-weight: bold;
+}
+#leaderboard .match
+{
+    width:20px;
+    font-weight: bold;
+}
+
+#leaderboard .win
+{
+    width:20px;
+    font-weight: bold;
+}
+
+#leaderboard .draw, #leaderboard .defeat
+{
+    width:20px;
+}
+
+#leaderboard .goals-pro, #leaderboard .goals-difference, #leaderboard .goals-agin
+{
+    width:24px;
+}
+
+#leaderboard .productivity
+{
+    width:30px;
+    font-weight: bold;
+    border-radius: 0px 6px 6px 0px;
+}
+
+.libertadores
+{
+    color: #003394;
+}
+
+.neutro
+{
+    color: #A8A8A8;
+}
+
+.rebaixado
+{
+    color: #A80000;
+}
+
+#hint-libertadores
+{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    margin: 6px 0px 0px 0px;
+    background-color: #003394;
+}
+
+#hint-rebaixamento
+{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    margin: 6px 0px 0px 0px;
+    background-color: #A80000;
+}
+
+.hint-text-group
+{
+    width: auto;
+    height: 10px;
+    font-family: "Ebrima";
+    font-size: 8pt;
+    margin: 0px 10px 0px 20px;
+}
+
+.display-block
+{
+    display: block!important;
+}
+
+.display-none
+{
+    display: none;
+}
+.align-left
+{
+    text-align: left;
+}
+
+.align-right
+{
+    text-align: right;
+}
+
+#info-home
+{
+    width: 24px;
+    height: 24px;
+    float: right;
+    position: absolute;
+    margin: 13px 0px 0px 263px
+}
+
+.text-score
+{
+    color: #A8A8A8;
+    font-family: "Ebrima";
+    font-size: 12pt;
+    display: none;
+}
+
+#home-score
+{
+    float: right;
+    position: absolute;
+    margin: 13px 0px 0px 292px
+}
+
+#visitants-score
+{
+    float: right;
+    position: absolute;
+    margin: 13px 0px 0px 342px
+}
+
+#info-versus
+{
+    width: 20px;
+    height: 15px;
+    float: right;
+    background-image: url("/imagens/versus.png");
+    background-size:100% 100%;
+    -webkit-background-size: 100% 100%;
+    position: absolute;
+    margin: 17px 0px 0px 312px;
+}
+
+#info-visitants
+{
+    width: 24px;
+    height: 24px;
+    float: right;
+    position: absolute;
+    margin: 13px 0px 0px 355px;
+}
+
+#info-latest-matchs
+{
+    height: auto;
+    overflow:hidden;
+}
+
+#info-latest-matchs .viewport
+{
+    float: left;
+    width: 410px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(30, 87, 153, 0.03);
+    border-radius: 3px;
+}
+
+#info-latest-matchs .buttons
+{
+    display: block;
+    float: left;
+    position: relative;
+    border-left: 2px solid #FFFFFF;
+    border-right: 2px solid #FFFFFF;
+    height: 50px;
+    width: 16px;
+    background: rgba(30, 87, 153, 0.08);
+    border-radius: 3px;
+    padding: 0px 0px 0px;
+}
+
+.arrow
+{
+    display: block;
+    width: 14px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+#info-latest-matchs .disabled
+{
+    opacity: 0.5;
+    cursor: default;
+}
+
+#info-latest-matchs .overview-item
+{
+    float: left;
+    padding: 0px 0px 0px 5px;
+    height: 50px;
+    width: 405px;
+}

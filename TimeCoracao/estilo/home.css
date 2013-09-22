@@ -45,7 +45,7 @@ p
     padding: 0px;
 }
 
-#home-team-select .viewport
+.viewport
 {
     float: left;
     width: 184px;
@@ -54,28 +54,33 @@ p
     position: relative;
 }
 
-#home-team-select .buttons
+.buttons
 {
     display: block;
     float: left;
 }
 
-#home-team-select .next
+.next
 {
     margin: 10px 0px 0px 5px;
 }
 
-#home-team-select .prev
+.prev
 {
     margin: 10px 5px 0px 55px;
 }
 
-#home-team-select .disable
+.disabled
 {
-    visibility: hidden;
+    cursor: default;
 }
 
-#home-team-select .overview
+.disabled img
+{
+    opacity: 0.2;
+}
+
+.overview
 {
     list-style: none;
     position: absolute;
@@ -84,7 +89,7 @@ p
     top: 0px;
 }
 
-#home-team-select .overview li
+.overview li
 {
     float: left;
     margin: 0px 21px 0px 66px;
@@ -102,23 +107,23 @@ p
     margin: 0px 0px 0px 0px;
 }
 
-#home-hint.hint
+.shadow-black
 {
-    cursor: default;
+    text-shadow: 0px 0px 7px #000000!important;
 }
 
-#home-hint.click
+.hint
 {
-    cursor: pointer;
+    cursor: default!important;
 }
 
-#home-hint.click:HOVER
+.click
 {
-    font-size: 12pt;
-    -webkit-transition: font-size 0.2s ease;
+    cursor: pointer!important;
 }
 
-.hidden
+.click:HOVER
 {
-    visibility: hidden;
+    font-size: 12pt!important;
+    -webkit-transition: font-size 0.2s ease!important;
 }
