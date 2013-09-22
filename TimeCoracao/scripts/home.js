@@ -1,4 +1,5 @@
 var teamDataAux;
+var clickTime = new Date();
 
 function mainHome()
 {
@@ -16,12 +17,15 @@ function mainHome()
         });
     });
 
-    $("#home-team-select a").click(function()
+    $("#home-team-select a").click(function(event)
     {
-        var hint = $("#home-hint");
+        var currentTime = new Date();
 
-        hint.attr("class", "hint " + teamDataAux.className)
-        .fadeOut();
+        // Impede que novos cliques sejam executados antes do término da animação.
+        if(currentTime - clickTime > 500)
+            changeTeam($(this), event);
+
+        clickTime = currentTime;
     });
 
     chrome.extension.sendMessage(
@@ -37,6 +41,14 @@ function mainHome()
         // Inicia o plugin de carrossel e configura seu callback.
         startCarouselHome(teamsListData);
     });
+}
+
+function changeTeam(element, event)
+{
+    if(!element.hasClass("disabled"))
+    {
+        $("#home-hint").stop(true, true).attr("class", "hint " + teamDataAux.className);
+    }
 }
 
 function populateCarouselHome(teamsListData)
@@ -56,23 +68,19 @@ function startCarouselHome(teamsListData)
 {
     $("#home-team-select").tinycarousel(
     {
-        start:0,
-        duration:800,
-        callback: function(element, index)
+        start: 0,
+        duration: 500,
+        afterMove: function(element, index)
         {
             // Exibe o nome do time em foco e armazena seus dados.
-            showTeam(teamsListData[index]);
-
-            teamDataAux = teamsListData[index];
+            showTeamData(teamsListData[index]);
         }
     });
 }
 
-function showTeam(teamData)
+function showTeamData(teamData)
 {
-    var hint = $("#home-hint");
+    $("#home-hint").attr("class", "click " + teamData.className).html(teamData.phonetic);
 
-    hint.attr("class", "click " + teamData.className)
-    .html(teamData.phonetic)
-    .fadeIn();
+    teamDataAux = teamData;
 }

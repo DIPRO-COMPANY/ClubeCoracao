@@ -1,20 +1,12 @@
 function main()
 {
-    var teamData =
-    {
-        "id": 0,
-        "name": "",
-        "icon": "",
-        "globoLink": "",
-        "oficialLink": "",
-        "className": "",
-        "phonetic": ""
-    };
-
-    saveTeamData(teamData);
+    var teamData = recoverTeamData();
 
     // Define o ícone do aplicativo em caso de times previamente selecionados com o escudo do time.
-    setTeamDefaultIcon(recoverTeamData().icon);
+    setTeamDefaultIcon(teamData.icon);
+
+    // Define a badge com a posição do time no campeonato.
+    setTeamStatusBadge(teamData.className, teamData.rank);
 }
 
 // Trata as mensagens entre a popup e o background.
@@ -46,9 +38,13 @@ function onMessage(request, sender, sendResponse)
             // Retorna um JSON com os dados armazenados na local storage.
             sendResponse(recoverTeamData());
             break;
+        case "getLSData":
+            // Retorna alguma informação armazenada na local storage.
+            sendResponse(recoverLSData(request.id, request.json));
+            break;
         case "setBadge":
          // Define badges com o status do time no campeonato.
-            setTeamStatusBadge(request.rank);
+            setTeamStatusBadge(request.team, request.rank);
 
             break;
         default:
@@ -59,12 +55,12 @@ function onMessage(request, sender, sendResponse)
 
 function setTeamDefaultIcon(icon)
 {
-	chrome.browserAction.setIcon({path: "/imagens/" + icon});
+    chrome.browserAction.setIcon({path: "/imagens/" + icon});
 }
 
 function saveTeamData(teamData)
 {
-	new LocalStorage().set("TeamData", JSON.stringify(teamData));
+    new LocalStorage().set("TeamData", JSON.stringify(teamData));
 }
 
 function recoverTeamData()
@@ -72,29 +68,42 @@ function recoverTeamData()
     return JSON.parse(new LocalStorage().get("TeamData"));
 }
 
-function setTeamStatusBadge(rank)
+function recoverLSData(id, json)
 {
-    if(rank === 0)
-    {
-        new Badge().clear();
-    }
+    var data = new LocalStorage().get(id);
+    
+    if(json)
+        return JSON.parse(data);
+    else
+        return data;
+}
+
+function setTeamStatusBadge(name, rank)
+{
+    var badge = new Badge();
+
+    if(name === new LocalStorage().get("libertadoresLastChampion"))
+        badge.setBadge("libertadores", rank);
+    else if(rank < 1)
+        badge.setBadge("");
     else if(rank === 1)
-    {
-        new Badge().lider();
-    }
+        badge.setBadge("lider");
     else if(rank < 5)
-        new Badge().libertadores(rank);
+        badge.setBadge("libertadores", rank);
     else if(rank < 16)
-        new Badge().neutro(rank);
-    else if(rank < 20)
-        new Badge().rebaixado(rank);
+        badge.setBadge("neutro", rank);
+    else
+        badge.setBadge("rebaixado", rank);
 }
 
 function getJSON(url, callback)
 {
-    getHTML(url, function(htmlData)
+    getHTML(url, function(responseText)
     {
-        callback(JSON.parse(parseUnicodePtBr(htmlData)));
+        if(responseText != undefined)
+            callback(JSON.parse(parseUnicodePtBr(responseText)));
+        else
+            callback("error");
     });
 }
 
@@ -110,6 +119,10 @@ function getHTML(url, callback)
         {
             callback(xhr.responseText);
         }
+        else
+        {
+            calllback("error");
+        }
     };
 
     xhr.send();
@@ -123,7 +136,7 @@ function parseUnicodePtBr(data)
 
 function unicodeToPtBr(unicode)
 {
-    hexa = "0x" + match.replace(/\\u/, "");
+    hexa = "0x" + unicode.replace(/\\u/, "");
 
     // Converte o número em hexa para inteiro e pega seu charcode em pt-br.
     return String.fromCharCode(parseInt(hexa));

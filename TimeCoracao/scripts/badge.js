@@ -1,32 +1,34 @@
-function Badge()
+function Badge(){}
+
+Badge.prototype.setBadge = function(type, rank)
 {
-	this.lider = function()
-	{
-		chrome.browserAction.setBadgeBackgroundColor({color: "#D9D919"});
-		chrome.browserAction.setBadgeText({text: "lider!!!"});
-	};
+    var color = "";
+    var text = "";
 
-	this.libertadores = function(rank)
-	{
-		chrome.browserAction.setBadgeBackgroundColor({color: "#0000FF"});
-		chrome.browserAction.setBadgeText({text: rank + ""});
-	};
+    switch(type)
+    {
+        case "lider":
+            color = "#D9D919";
+            text = "lider";
 
-	this.neutro = function(rank)
-	{
-		chrome.browserAction.setBadgeBackgroundColor({color: "#A8A8A8"});
-		chrome.browserAction.setBadgeText({text: rank + ""});
-	};
+            break;
+        case "libertadores":
+            color = "#003394";
+            text = rank + "";
 
-	this.rebaixado = function(rank)
-	{
-		chrome.browserAction.setBadgeBackgroundColor({color: "#A80000"});
-		chrome.browserAction.setBadgeText({text: rank + ""});
-	};
+            break;
+        case "neutro":
+            color = "#A8A8A8";
+            text = rank + "";
 
-	this.clear = function()
-	{
-		chrome.browserAction.setBadgeBackgroundColor({color: ""});
-		chrome.browserAction.setBadgeText({text: ""});
-	};
-}
+            break;
+        case "rebaixado":
+            color = "#A80000";
+            text = rank + "";
+
+            break;
+    }
+
+    chrome.browserAction.setBadgeBackgroundColor({color: color});
+    chrome.browserAction.setBadgeText({text: text});
+};

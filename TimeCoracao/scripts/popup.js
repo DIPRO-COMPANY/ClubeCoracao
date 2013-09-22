@@ -8,12 +8,12 @@ function main()
 
 function loadPage(teamData)
 {
-    var cssHome = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/home.css\">";
-    var cssInfo = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/info.css\">";
+    var cssHome = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/home.css\" id=\"homeCSS\">";
+    var cssInfo = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/info.css\" id=\"infoCSS\">";
 
     // Remove as folhas de estilo da popup.html.
-    $(cssHome).remove();
-    $(cssInfo).remove();
+    $("#homeCSS").remove();
+    $("#infoCSS").remove();
 
     if(teamData.id === 0)
     {
