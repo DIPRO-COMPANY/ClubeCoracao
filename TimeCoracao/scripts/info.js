@@ -1,22 +1,18 @@
 function mainInfo(teamData)
 {
-    // Insere o css do time selecionado.
-    $("<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/times/" + teamData.className + ".css\">").appendTo("head");
-
     // Configura o layout da página com os dados do time escolhido.
     setTeamBasicInformation(teamData);
 
     // Busca as últimas notícias de highlight sobre o time em formato json.
-    getLatestNewsJSON(teamData.className, function(latestNews)
+    getLatestNews(teamData.slug, function(latestNews)
     {
-        populateCarouselLatestNews(latestNews);
-        startCarouselLatestNews();
+        setCarouselLatestNews(latestNews);
     });
 
     // Recupera a tabela de classificação no formato json, trata e exibe as informações na popup.
     getLeaderBoard(function(leaderBoard)
     {
-        var rank = getTeamRank(leaderBoard, teamData.className);
+        var rank = getTeamRank(leaderBoard, teamData.slug);
 
         teamData.rank = rank;
 
@@ -31,83 +27,33 @@ function mainInfo(teamData)
         populateLeaderBoardContainer(leaderBoard, rank);
 
         // Busca a posição do time e seta as informações dependentes como a badge de status e a imagem de lider.
-        showTeamRanking(rank, teamData.className);
+        showTeamRanking(rank, teamData.slug);
     });
 
     // Busca as últimas partidas do time em formato json.
-    getLatestMatchsJSON(teamData.className, function(latestMatchs)
+    getLatestMatchs(teamData.slug, function(latestMatchs)
     {
-        populateCarouselLatestMatchs(latestMatchs);
-        startCarouselLatestMatchs();
+        setCarouselLatestMatchs(latestMatchs);
     });
 }
 
 function setTeamBasicInformation(teamData)
 {
+    // Insere o css do time selecionado.
+    $("<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/times/" + teamData.slug + ".css\">").appendTo("head");
+
+    // Define o escudo do time.
+    $("#team-streamer").css("background-image", "url(" + teamData.escudo_medio + ")");
+
     // Define o título.
-    $("p.page-title").html(teamData.phonetic);
+    $("p.page-title").html(accentInsensitive(teamData.nome_popular));
 
     // Define os links de acesso externo do topo.
-    $("#link-globo").attr("href", teamData.globoLink).html(teamData.name + " na globo");
-    $("#link-oficial").attr("href", teamData.oficialLink);
+    $("#link-globo").attr("href", teamData.globoLink).html(teamData.nome_popular + " na globo");
+    $("#link-oficial").attr("href", teamData.officialLink);
 }
 
-function populateCarouselLatestNews(latestNews)
-{
-    var newsViewList = "";
-    var newsPagerList = "";
-    var max = latestNews.length;
-
-    max = (max < 3 ? max : 3);
-
-    // Independente do total de notícias, exibe apenas 3.
-    for(var index = 0; index < max; index++)
-    {
-        newsViewList += "<div class=\"overview-item\">\n \
-                             <a href=\"" + latestNews[index].link + "\" target=\"new\">\n \
-                                 <span class=\"highlight " + latestNews[index].align + "\">" + latestNews[index].title + "</span>\n \
-                                 <img src=\"" + latestNews[index].image + "\" />\n \
-                                 <span class=\"sub-text\">" + latestNews[index].subtitle + "</span>\n \
-                             </a>\n \
-                         </div>";
-
-        newsPagerList += "<div class=\"pager-item\">\n \
-                              <img class=\"pager-seta\" src=\"/imagens/seta.png\" />\n \
-                              <a rel=\"" + index + "\" class=\"pager-link\" href=\"#\">\n \
-                                  <div class=\"pager-title\">" + latestNews[index].title + "</div>\n \
-                                  <div class=\"pager-mask\"></div>\n \
-                                  <img class=\"pager-ativo\" src=\"/imagens/circle.png\" />\n \
-                                  <img class=\"pager-foto\" src=\"" + latestNews[index].image + "\" />\n \
-                              </a>\n \
-                          </div>";
-    }
-
-    $("#info-latest-news .overview").append(newsViewList);
-    $("#info-latest-news .pager").append(newsPagerList);
-}
-
-function startCarouselLatestNews()
-{
-    $("#info-latest-news").tinycarousel(
-    {
-        start: 0,
-        duration: 600,
-        controls: false,
-        pager: true,
-        interval: true,
-        intervaltime: 5000,
-        fixedPageWidth: 450,
-        fixedViewWidth: 330,
-        UseViewSize: true,
-        beforeMove: function(element, index)
-        {
-            $("img.pager-ativo").attr("class", "pager-ativo");
-            $("a[rel='" + index + "']").find("img.pager-ativo").attr("class", "pager-ativo display-block");
-        }
-    });
-}
-
-function getLatestNewsJSON(name, callback)
+function getLatestNews(name, callback)
 {
     // Esse não tem json vai ter que ser na base do scraping mesmo.
     chrome.extension.sendMessage(
@@ -139,6 +85,58 @@ function getLatestNewsJSON(name, callback)
         });
 
         callback(latestNews);
+    });
+}
+
+function setCarouselLatestNews(latestNews)
+{
+    var newsViewList = "";
+    var newsPagerList = "";
+    var max = latestNews.length;
+
+    max = (max < 3 ? max : 3);
+
+    // Independente do total de notícias, exibe apenas 3.
+    for(var index = 0; index < max; index++)
+    {
+        newsViewList += "<div class=\"overview-item\">\n \
+                             <a href=\"" + latestNews[index].link + "\" target=\"new\">\n \
+                                 <span class=\"highlight " + latestNews[index].align + "\">" + latestNews[index].title + "</span>\n \
+                                 <img src=\"" + latestNews[index].image + "\" />\n \
+                                 <span class=\"sub-text\">" + latestNews[index].subtitle + "</span>\n \
+                             </a>\n \
+                         </div>";
+
+        newsPagerList += "<div class=\"pager-item\">\n \
+                              <img class=\"pager-seta\" src=\"/imagens/seta.png\" />\n \
+                              <a rel=\"" + index + "\" class=\"pager-link\" href=\"#\">\n \
+                                  <div class=\"pager-title\">" + latestNews[index].title + "</div>\n \
+                                  <div class=\"pager-mask\"></div>\n \
+                                  <img class=\"pager-ativo\" src=\"/imagens/circle.png\" />\n \
+                                  <img class=\"pager-foto\" src=\"" + latestNews[index].image + "\" />\n \
+                              </a>\n \
+                          </div>";
+    }
+
+    $("#info-latest-news .overview").append(newsViewList);
+    $("#info-latest-news .pager").append(newsPagerList);
+
+    $("#info-latest-news").tinycarousel(
+    {
+        start: 0,
+        duration: 600,
+        controls: false,
+        pager: true,
+        interval: true,
+        intervaltime: 5000,
+        fixedPageWidth: 450,
+        fixedViewWidth: 330,
+        UseViewSize: true,
+        beforeMove: function(element, index)
+        {
+            $("img.pager-ativo").attr("class", "pager-ativo");
+            $("a[rel='" + index + "']").find("img.pager-ativo").attr("class", "pager-ativo display-block");
+        }
     });
 }
 
@@ -241,7 +239,7 @@ function populateLeaderBoardContainer(leaderBoard, rank)
     });
 }
 
-function getLatestMatchsJSON(name, callback)
+function getLatestMatchs(name, callback)
 {
     chrome.extension.sendMessage(
     {
@@ -254,38 +252,94 @@ function getLatestMatchsJSON(name, callback)
     });
 }
 
-function populateCarouselLatestMatchs(latestMatchs)
+function setCarouselLatestMatchs(latestMatchs)
 {
     var matchsList = "";
     var max = latestMatchs.length;
+    var matchDateTime;
+    var displayBlock;
+    var startPosition = 0;
 
-    // VC TEM QUE ARMAZENAR O SERVIDOR, TIPO, GLOBOESPORTE.GLOBO.COM PQ AS IMAGENS VEM FALTANDO O SERVIDOR.
     for(var index = 0; index < max; index++)
     {
+        matchDateTime = getMatchDateTime(latestMatchs[index].datajogo, latestMatchs[index].horajogo);
+
+        if(new Date(matchDateTime) < new Date())
+            displayBlock = " display-block";
+        else
+        {
+            if(startPosition === 0)
+                startPosition++;
+
+            displayBlock = "";
+        }
+
+        matchDateTime = formatMatchDateTime(matchDateTime);
+
         if(latestMatchs[index].slug_campeonato === "campeonato-brasileiro")
         {
             matchsList += "<div class=\"overview-item\">\n \
-                               <div id=\"info-home\"><img src=\"" + latestMatchs[index].escudo_mandante.pequeno + "\" alt=\"\" title=\"\" /></div>\n \
-                               <p id=\"home-score\" class=\"text-score\">" + latestMatchs[index].placar_oficial_mandante + "</p>\n \
+                               <div id=\"info-home\"><img title=\"mandante\" src=\"http://s.glbimg.com/es/ge/f/" + latestMatchs[index].escudo_mandante.pequeno + "\" alt=\"\" title=\"\" /></div>\n \
+                               <p id=\"home-score\" class=\"text-score" + displayBlock + "\">" + latestMatchs[index].placar_oficial_mandante + "</p>\n \
                                <div id=\"info-versus\"></div>\n \
-                               <p id=\"visitants-score\" class=\"text-score\">" + latestMatchs[index].placar_oficial_visitante + "</p>\n \
-                               <div id=\"info-visitants\"><img src=\"/" + latestMatchs[index].escudo_visitante.pequeno + "\" alt=\"\" title=\"\" /></div>\n \
-                               <p class=\"text-bold\">" + latestMatchs[index].nome_campeonato + " - " + latestMatchs[index].rodada + "ª rodada<br />" + latestMatchs[index].datajogo + " - " + latestMatchs[index].horajogo + " - " + latestMatchs[index].nome_popular + "</p>\n \
+                               <p id=\"visitants-score\" class=\"text-score" + displayBlock + "\">" + latestMatchs[index].placar_oficial_visitante + "</p>\n \
+                               <div id=\"info-visitants\"><img title=\"visitante\" src=\"http://s.glbimg.com/es/ge/f/" + latestMatchs[index].escudo_visitante.pequeno + "\" alt=\"\" title=\"\" /></div>\n \
+                               <p class=\"text-bold\">" + latestMatchs[index].nome_campeonato + (!isNaN(latestMatchs[index].rodada) ? " - " + latestMatchs[index].rodada + "ª rodada" : "") + "<br />" + matchDateTime + " - " + latestMatchs[index].nome_popular + "</p>\n \
                            </div>";
         }
     }
 
     $("#info-latest-matchs .overview").append(matchsList);
-}
 
-function startCarouselLatestMatchs()
-{
     $("#info-latest-matchs").tinycarousel(
     {
         start: 0,
+        startPosition: startPosition,
         duration: 500,
         fixedPageWidth: 450,
         fixedViewWidth: 410,
         UseViewSize: true
     });
+}
+
+function getMatchDateTime(matchDate, matchTime)
+{
+    try
+    {
+        var matchDateTime = new Date(matchDate + " " + matchTime);
+
+        return matchDateTime;
+    }
+    catch(error)
+    {
+        return "";
+    }
+}
+
+function formatMatchDateTime(matchDateTime)
+{
+    try
+    {
+        var weekDay = new Array("Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab");
+        var day = matchDateTime.getUTCDay();
+
+        matchDate = weekDay[day] + ". " + formatNumber(matchDateTime.getDate()) + "/" + formatNumber((matchDateTime.getMonth() + 1));
+
+        if(!isNaN(day))
+            matchTime = " às " + formatNumber(matchDateTime.getHours()) + "h" + formatNumber(matchDateTime.getMinutes());
+
+        return matchDate + matchTime;
+    }
+    catch(error)
+    {
+        return "sem data cadastrada";
+    }
+}
+
+function formatNumber(number)
+{
+    if(number < 10)
+        return "0" + number;
+    else
+        return number;
 }

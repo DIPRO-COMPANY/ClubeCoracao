@@ -15,7 +15,7 @@ function loadPage(teamData)
     $("#homeCSS").remove();
     $("#infoCSS").remove();
 
-    if(teamData.id === 0)
+    if(teamData === "")
     {
         $(cssHome).appendTo("head");
 
@@ -29,6 +29,18 @@ function loadPage(teamData)
         // Carrega a página de informação do time e executa a função mainInfo dentro do info.js.
         $("#content").load("info.html", function(){ mainInfo(teamData); });
     }
+}
+
+function accentInsensitive(text)
+{
+    text = text.replace(new RegExp(/[ÁÀÂÃáàâã]/gi), "a");
+    text = text.replace(new RegExp(/[ÉÈÊéèê]/gi), "e");
+    text = text.replace(new RegExp(/[ÍÌÎíìî]/gi), "i");
+    text = text.replace(new RegExp(/[ÓÒÔÕóòôõ]/gi), "o");
+    text = text.replace(new RegExp(/[ÚÙÛúùû]/gi), "u");
+    text = text.replace(new RegExp(/[Çç]/gi), "c");
+
+    return text;
 }
 
 // Executa a função main sempre que a popup da extensão é aberta.

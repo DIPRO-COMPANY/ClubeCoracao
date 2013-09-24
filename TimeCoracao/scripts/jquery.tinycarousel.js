@@ -1,5 +1,5 @@
 /*
- * Tiny Carousel 1.9
+ * Tiny Carousel 1.9 - Modified
  * http://www.baijs.nl/tinycarousel
  *
  * Copyright 2010, Maarten Baijs
@@ -10,6 +10,9 @@
  * Date: 01 / 06 / 2011
  * Depends on library: jQuery
  *
+ * Modified in 09/2013
+ * - New options and method implemented.
+ * - Object's size calculation logic modified
  */
 (function($)
 {
@@ -20,6 +23,7 @@
         options:
         {
             start: 1, // where should the carousel start?
+            startPosition: 0, // First item in focus when carousel starts.
             display: 1, // how many blocks do you want to move at 1 time?
             axis: "x", // vertical or horizontal scroller? ( x || y ).
             controls: true, // show left and right navigation buttons.
@@ -189,6 +193,8 @@
             iSteps = Math.max(1, Math.ceil(oPages.length / options.display) - iLeftover);
 
             iCurrent = Math.min(iSteps, Math.max(1, options.start)) - 2;
+
+            iCurrent += options.startPosition;
 
             oContent.css(bAxis ? "width" : "height", ((options.UseViewSize ? iViewSize : iPageSize) * oPages.length));
 

@@ -29,17 +29,9 @@ p
     margin: 40px 0px 10px 7px;
 }
 
-#home-hint
-{
-    font-family: QuickExpress;
-    font-size: 9pt;
-    text-transform: uppercase;
-    padding: 7px 0px 7px 0px;
-    margin-top: 0px;
-}
-
 #home-team-select
 {
+    visibility: visible;
     height: 70px;
     overflow: hidden;
     padding: 0px;
@@ -92,10 +84,11 @@ p
 .overview li
 {
     float: left;
-    margin: 0px 21px 0px 66px;
+    margin: 0px 21px 0px 69px;
     padding: 1px;
     height: 80px;
     width: 184px;
+    padding-left: 0.11em;
 }
 
 #home-hint
@@ -107,9 +100,18 @@ p
     margin: 0px 0px 0px 0px;
 }
 
-.shadow-black
+.error
 {
-    text-shadow: 0px 0px 7px #000000!important;
+    font-family: "Ebrima"!important;
+    font-size: 8pt!important;
+    font-weight: bold!important;
+    color: #C80000!important;
+    text-transform: none!important;
+}
+
+.hidden
+{
+    visibility: hidden!important;
 }
 
 .hint
@@ -126,4 +128,28 @@ p
 {
     font-size: 12pt!important;
     -webkit-transition: font-size 0.2s ease!important;
+}
+
+.atletico-mg, .botafogo, .corinthians, .criciuma, .ponte-preta, .santos, .vasco
+{
+    color: #000000;
+    text-shadow: 0px 0px 5px #000000;
+}
+
+.atletico-pr, .flamengo, .fluminense, .internacional, .nautico, .portuguesa, .sao-paulo, .vitoria
+{
+    color: #A80000;
+    text-shadow: 0px 0px 5px #A80000;
+}
+
+.bahia, .cruzeiro, .gremio
+{
+    color: #0099CC;
+    text-shadow: 0px 0px 5px #0099CC;
+}
+
+.coritiba, .goias
+{
+    color: #1B9656;
+    text-shadow: 0px 0px 5px #1B9656;
 }

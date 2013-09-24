@@ -2,11 +2,22 @@ function main()
 {
     var teamData = recoverTeamData();
 
-    // Define o ícone do aplicativo em caso de times previamente selecionados com o escudo do time.
-    setTeamDefaultIcon(teamData.icon);
+    if(teamData !== "")
+    {
+        // Define o ícone do aplicativo em caso de times previamente selecionados com o escudo do time.
+        setTeamDefaultIcon(teamData.escudo_pequeno);
 
-    // Define a badge com a posição do time no campeonato.
-    setTeamStatusBadge(teamData.className, teamData.rank);
+        // Define a badge com a posição do time no campeonato.
+        setTeamStatusBadge(teamData.slug, teamData.rank);
+    }
+    else
+    {
+        // Define o ícone padrão do aplicativo.
+        setTeamDefaultIcon("");
+
+        // Limpa a badge de status de time.
+        setTeamStatusBadge("", "0");
+    }
 }
 
 // Trata as mensagens entre a popup e o background.
@@ -19,7 +30,7 @@ function onMessage(request, sender, sendResponse)
             saveTeamData(request.teamData);
 
             // Define o ícone da extensão com o escudo do time.
-            setTeamDefaultIcon(request.teamData.icon);
+            setTeamDefaultIcon(request.teamData.escudo_pequeno);
 
             sendResponse(true);
 
@@ -55,7 +66,7 @@ function onMessage(request, sender, sendResponse)
 
 function setTeamDefaultIcon(icon)
 {
-    chrome.browserAction.setIcon({path: "/imagens/" + icon});
+    chrome.browserAction.setIcon({path: icon});
 }
 
 function saveTeamData(teamData)
@@ -65,14 +76,19 @@ function saveTeamData(teamData)
 
 function recoverTeamData()
 {
-    return JSON.parse(new LocalStorage().get("TeamData"));
+    data = new LocalStorage().get("TeamData");
+
+    if(data !== undefined)
+        return JSON.parse(data);
+
+    return "";
 }
 
 function recoverLSData(id, json)
 {
     var data = new LocalStorage().get(id);
     
-    if(json)
+    if(json && data !== undefined)
         return JSON.parse(data);
     else
         return data;
@@ -117,11 +133,10 @@ function getHTML(url, callback)
     {
         if(xhr.readyState === 4)
         {
-            callback(xhr.responseText);
-        }
-        else
-        {
-            calllback("error");
+            if(xhr.status === 200)
+                callback(xhr.responseText);
+            else
+                callback("error");
         }
     };
 

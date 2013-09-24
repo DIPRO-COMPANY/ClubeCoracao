@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Clube do Coração",
-    "description": "Viva seu clube do coração mesmo enquanto você navega na internet, sem nem perceber, mantenha-se informado sobre os últimos acontecimentos do seu clube, quantidade de pontos e posição na tabela em tempo real.",
+    "description": "Acompanhe seu clube do coração sem digitar endereço algum. Tenha informações atualizadas sobre a situação do seu time no brasileirão 24 horas por dia.",
     "version": "1.0",
     "icons":
     {

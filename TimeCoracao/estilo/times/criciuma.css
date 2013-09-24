@@ -8,14 +8,9 @@ a, a:ACTIVE, a:HOVER, a:FOCUS, .team-color
     background-color: #000000;
 }
 
-#team-streamer
-{
-    background-image: url("/imagens/criciuma.png");
-}
-
 .page-title
 {
-    text-shadow: 0px 0px 7px #000000;
+    text-shadow: 0px 0px 4px #000000;
 }
 
 .header-bar
