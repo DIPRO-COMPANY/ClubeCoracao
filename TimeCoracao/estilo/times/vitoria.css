@@ -3,7 +3,7 @@ a, a:ACTIVE, a:HOVER, a:FOCUS, .team-color
     color: #A80000;
 }
 
-#info-latest-news  .pager-title
+#latest-news  .pager-title
 {
     background-color: #A80000;
 }
@@ -23,12 +23,22 @@ a, a:ACTIVE, a:HOVER, a:FOCUS, .team-color
     background: linear-gradient(to bottom, rgba(168, 0, 0, 0) 0%, rgba(168, 0, 0, 1) 49%, rgba(168, 0, 0, 0) 100%);
 }
 
-#leaderboard thead tr, #info-latest-matchs .buttons
+#leaderboard thead tr, #latest-matchs .buttons
 {
     background: rgba(168, 0, 0, 0.08);
 }
 
-#leaderboard tbody tr, #info-latest-matchs .viewport
+#leaderboard tbody tr, #latest-matchs .viewport
 {
     background: rgba(168, 0, 0, 0.02);
+}
+
+.button
+{
+    background: url("/imagens/icons_red_small.png") no-repeat;
+}
+
+.button:HOVER
+{
+    background: url("/imagens/icons_red_focus_small.png") no-repeat;
 }

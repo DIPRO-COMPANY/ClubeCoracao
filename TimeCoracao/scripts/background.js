@@ -16,7 +16,7 @@ function main()
         setTeamDefaultIcon("");
 
         // Limpa a badge de status de time.
-        setTeamStatusBadge("", "0");
+        setTeamStatusBadge("", 0);
     }
 }
 
@@ -29,9 +29,14 @@ function onMessage(request, sender, sendResponse)
             // Salva os dados do time selecionado na local storage.
             saveTeamData(request.teamData);
 
-            // Define o ícone da extensão com o escudo do time.
-            setTeamDefaultIcon(request.teamData.escudo_pequeno);
-
+            if(request.teamData !== "")
+                // Define o ícone da extensão com o escudo do time.
+                setTeamDefaultIcon(request.teamData.escudo_pequeno);
+            else
+            {
+                // Define o ícone padrão da extensão.
+                setTeamDefaultIcon("");
+            }
             sendResponse(true);
 
             break;
@@ -54,7 +59,7 @@ function onMessage(request, sender, sendResponse)
             sendResponse(recoverLSData(request.id, request.json));
             break;
         case "setBadge":
-         // Define badges com o status do time no campeonato.
+            // Define badges com o status do time no campeonato.
             setTeamStatusBadge(request.team, request.rank);
 
             break;
@@ -66,7 +71,7 @@ function onMessage(request, sender, sendResponse)
 
 function setTeamDefaultIcon(icon)
 {
-    chrome.browserAction.setIcon({path: icon});
+    chrome.browserAction.setIcon({ path: (icon === "" ? "/imagens/brasil.png" : icon) });
 }
 
 function saveTeamData(teamData)

@@ -3,11 +3,19 @@ function mainInfo(teamData)
     // Configura o layout da página com os dados do time escolhido.
     setTeamBasicInformation(teamData);
 
+    setEvents();
+
+    showLoading("#latest-news");
+
     // Busca as últimas notícias de highlight sobre o time em formato json.
     getLatestNews(teamData.slug, function(latestNews)
     {
         setCarouselLatestNews(latestNews);
+
+        hideLoading("#latest-news");
     });
+
+    showLoading("#leaderboard-content");
 
     // Recupera a tabela de classificação no formato json, trata e exibe as informações na popup.
     getLeaderBoard(function(leaderBoard)
@@ -17,23 +25,25 @@ function mainInfo(teamData)
         teamData.rank = rank;
 
         // Armazena a posição do time na local storage.
-        chrome.extension.sendMessage(
-        {
-            action: "saveTeamData",
-            teamData: teamData
-        }, function(response){});
+        saveTeamData(teamData, function(response){});
 
         // Preenche a tabela de classificação reduzida contendo o time escolhido mais três outros times.
         populateLeaderBoardContainer(leaderBoard, rank);
+
+        hideLoading("#leaderboard-content");
 
         // Busca a posição do time e seta as informações dependentes como a badge de status e a imagem de lider.
         showTeamRanking(rank, teamData.slug);
     });
 
+    showLoading("#latest-matchs");
+
     // Busca as últimas partidas do time em formato json.
     getLatestMatchs(teamData.slug, function(latestMatchs)
     {
         setCarouselLatestMatchs(latestMatchs);
+
+        hideLoading("#latest-matchs");
     });
 }
 
@@ -53,14 +63,21 @@ function setTeamBasicInformation(teamData)
     $("#link-oficial").attr("href", teamData.officialLink);
 }
 
+function setEvents()
+{
+    $("div.change-team").click(function()
+    {
+        if(confirm("Tem certeza que deseja alterar o seu clube do coração?"))
+        {
+            loadPage("");
+        }
+    });
+}
+
 function getLatestNews(name, callback)
 {
     // Esse não tem json vai ter que ser na base do scraping mesmo.
-    chrome.extension.sendMessage(
-    {
-        action: "getHTML",
-        url: "http://globoesporte.globo.com/futebol/times/" + name + "/"
-    },
+    getHTML("http://globoesporte.globo.com/futebol/times/" + name + "/",
     function(htmlData)
     {
         var latestNews = [];
@@ -118,10 +135,10 @@ function setCarouselLatestNews(latestNews)
                           </div>";
     }
 
-    $("#info-latest-news .overview").append(newsViewList);
-    $("#info-latest-news .pager").append(newsPagerList);
+    $("#latest-news .overview").append(newsViewList);
+    $("#latest-news .pager").append(newsPagerList);
 
-    $("#info-latest-news").tinycarousel(
+    $("#latest-news").tinycarousel(
     {
         start: 0,
         duration: 600,
@@ -142,11 +159,7 @@ function setCarouselLatestNews(latestNews)
 
 function getLeaderBoard(callback)
 {
-    chrome.extension.sendMessage(
-    {
-        action: "getJSON",
-        url: "http://globoesporte.globo.com/dynamo/futebol/campeonato/campeonato-brasileiro/brasileirao2013/classificacao.json"
-    },
+    getJSON("http://globoesporte.globo.com/dynamo/futebol/campeonato/campeonato-brasileiro/brasileirao2013/classificacao.json",
     function(leaderBoard)
     {
         // Passa a parte do json com a classificação do campeonato.
@@ -174,12 +187,7 @@ function getTeamRank(leaderBoard, name)
 
 function showTeamRanking(rank, name)
 {
-    chrome.extension.sendMessage(
-    {
-        action: "setBadge",
-        team: name,
-        rank: rank
-    }, function(){});
+    setStatusBadge(name, rank, null);
 
     if(rank === 1)
        $("#team-leader").attr("class", "display-block");
@@ -201,12 +209,8 @@ function populateLeaderBoardContainer(leaderBoard, rank)
 
     endPosition = iniPosition + 4;
 
-    chrome.extension.sendMessage(
-    {
-        action: "getLSData",
-        id: "libertadoresLastChampion",
-        json: false
-    }, function(libertadoresLastChampion)
+    getLSData("libertadoresLastChampion", false,
+    function(libertadoresLastChampion)
     {
         for(var index = iniPosition; index < endPosition; index++)
         {
@@ -241,11 +245,7 @@ function populateLeaderBoardContainer(leaderBoard, rank)
 
 function getLatestMatchs(name, callback)
 {
-    chrome.extension.sendMessage(
-    {
-        action: "getJSON",
-        url: "http://globoesporte.globo.com/dynamo/futebol/time/" + name + "/listadejogos.json"
-    },
+    getJSON("http://globoesporte.globo.com/dynamo/futebol/time/" + name + "/listadejogos.json",
     function(latestMatchs)
     {
         callback(latestMatchs);
@@ -276,22 +276,19 @@ function setCarouselLatestMatchs(latestMatchs)
 
         matchDateTime = formatMatchDateTime(matchDateTime);
 
-        if(latestMatchs[index].slug_campeonato === "campeonato-brasileiro")
-        {
-            matchsList += "<div class=\"overview-item\">\n \
-                               <div id=\"info-home\"><img title=\"mandante\" src=\"http://s.glbimg.com/es/ge/f/" + latestMatchs[index].escudo_mandante.pequeno + "\" alt=\"\" title=\"\" /></div>\n \
-                               <p id=\"home-score\" class=\"text-score" + displayBlock + "\">" + latestMatchs[index].placar_oficial_mandante + "</p>\n \
-                               <div id=\"info-versus\"></div>\n \
-                               <p id=\"visitants-score\" class=\"text-score" + displayBlock + "\">" + latestMatchs[index].placar_oficial_visitante + "</p>\n \
-                               <div id=\"info-visitants\"><img title=\"visitante\" src=\"http://s.glbimg.com/es/ge/f/" + latestMatchs[index].escudo_visitante.pequeno + "\" alt=\"\" title=\"\" /></div>\n \
-                               <p class=\"text-bold\">" + latestMatchs[index].nome_campeonato + (!isNaN(latestMatchs[index].rodada) ? " - " + latestMatchs[index].rodada + "ª rodada" : "") + "<br />" + matchDateTime + " - " + latestMatchs[index].nome_popular + "</p>\n \
-                           </div>";
-        }
+        matchsList += "<div class=\"overview-item\">\n \
+                           <div id=\"home\"><img title=\"" + latestMatchs[index].apelido_mandante + "\" src=\"http://s.glbimg.com/es/ge/f/" + latestMatchs[index].escudo_mandante.pequeno + "\" alt=\"\" title=\"\" /></div>\n \
+                           <p id=\"score\" class=\"text-score" + displayBlock + "\">" + latestMatchs[index].placar_oficial_mandante + "</p>\n \
+                           <div id=\"versus\"></div>\n \
+                           <p id=\"visitants-score\" class=\"text-score" + displayBlock + "\">" + latestMatchs[index].placar_oficial_visitante + "</p>\n \
+                           <div id=\"visitants\"><img title=\"" + latestMatchs[index].apelido_visitante + "\" src=\"http://s.glbimg.com/es/ge/f/" + latestMatchs[index].escudo_visitante.pequeno + "\" alt=\"\" title=\"\" /></div>\n \
+                           <p class=\"text-bold\">" + latestMatchs[index].nome_campeonato + (!isNaN(latestMatchs[index].rodada) ? " - " + latestMatchs[index].rodada + "ª rodada" : "") + "<br />" + matchDateTime + " - " + latestMatchs[index].nome_popular + "</p>\n \
+                       </div>";
     }
 
-    $("#info-latest-matchs .overview").append(matchsList);
+    $("#latest-matchs .overview").append(matchsList);
 
-    $("#info-latest-matchs").tinycarousel(
+    $("#latest-matchs").tinycarousel(
     {
         start: 0,
         startPosition: startPosition,

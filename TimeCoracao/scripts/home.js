@@ -3,59 +3,62 @@ var clickTime = new Date();
 
 function mainHome()
 {
-    $("#home-hint").click(function()
+    // Clears the team's data.
+    // Limpa os dados do time.
+    saveTeamData("", function(response){});
+
+    // Removes status's badge.
+    // Remove a badge de status.
+    setStatusBadge("", 0);
+
+    $("#hint").click(function()
     {
-        // Envia os dados do time escolhido para o background para serem armazenados.
-        chrome.extension.sendMessage(
-        {
-            action: "saveTeamData",
-            teamData: teamDataAux
-        },
+        // Saves team's data.
+        // Salva os dados do time.
+        saveTeamData(teamDataAux,
         function(response)
         {
             loadPage(teamDataAux);
         });
     });
 
-    $("#home-team-select a").click(function()
+    $("#team-select a").click(function()
     {
         var currentTime = new Date();
 
+        // Prevents new clicks are executed before the end of the animation.
         // Impede que novos cliques sejam executados antes do término da animação.
         if(currentTime - clickTime > 500)
         {
             if(!$(this).hasClass("disabled"))
             {
-                $("#home-hint").stop(true, true).attr("class", "hint " + teamDataAux.slug);
+                $("#hint").stop(true, true).attr("class", "hint " + teamDataAux.slug);
             }
         }
 
         clickTime = currentTime;
     });
 
+    showLoading("#team-select");
+
     getTeamsList(function(teamsListData)
     {
         if(teamsListData !== "error")
         {
-            // Recuperada a lista de times via json, popula o carousel com os escudos dos mesmos.
             setTeamsListCarousel(teamsListData);
-
-            $("#home-team-select").attr("class", "");
         }
         else
         {
-            $("#home-hint").attr("class", "error").html("erro ao recuperar a lista de times. voce está off-line?");
+            $("#hint").attr("class", "error").html("erro ao recuperar a lista de times. voce está off-line?");
         }
     });
+
+    hideLoading("#team-select");
 }
 
 function getTeamsList(callback)
 {
-    chrome.extension.sendMessage(
-    {
-        action: "getJSON",
-        url: "http://globoesporte.globo.com/dynamo/futebol/campeonato/campeonato-brasileiro/brasileirao2013/classificacao.json"
-    },
+    getJSON("http://globoesporte.globo.com/dynamo/futebol/campeonato/campeonato-brasileiro/brasileirao2013/classificacao.json",
     function(teamsList)
     {
         var teamsLength = 0;
@@ -106,13 +109,13 @@ function setTeamsListCarousel(teamsListData)
     $("ul.overview").append(teamsList);
 
     // 
-    $("#home-team-select").tinycarousel(
+    $("#team-select").tinycarousel(
     {
         duration: 500,
         beforeMove: function(element, index)
         {
             // Exibe o nome do time em foco e armazena seus dados.
-            $("#home-hint").attr("class", "click " + teamsListData[index].slug).html(accentInsensitive(teamsListData[index].nome_popular));
+            $("#hint").attr("class", "click " + teamsListData[index].slug).html(accentInsensitive(teamsListData[index].nome_popular));
 
             // Cria a propriedade rank com o valor 0.
             teamsListData[index].rank = 0;

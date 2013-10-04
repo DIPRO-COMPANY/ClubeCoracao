@@ -1,7 +1,6 @@
 body
 {
     width: 450px!important;
-    height: 580px!important;
 }
 
 a, a:ACTIVE, a:HOVER, a:FOCUS
@@ -19,26 +18,55 @@ img
     height: auto;
 }
 
-#info-main
+#buttons-bar
 {
-    padding:10px 0px 0px 0px;
+    width: 450px;
+    margin: 0px 0px 0px 0px;
+    top: 0px;
+    padding: 0px 0px 0px 0px;
+    position: relative;
+    float: left;
 }
 
-#info-top
+.button
+{
+    width: 26px;
+    height: 26px;
+    float: right;
+    position: relative;
+    margin-left: 5px;
+    cursor: default;
+}
+
+.change-team, .change-team:HOVER
+{
+    background-position: -39px -264px!important;
+    cursor: pointer;
+}
+
+.settings, .settings:HOVER
+{
+    background-position: -359px -168px!important;
+    cursor: pointer;
+}
+
+#top
 {
     border-bottom: 1px solid rgb(112, 112, 112);
     width: 450px;
-    height: 58px;
-    margin-bottom: -10px;
+    position: relative;
+    float:left;
 }
 
-#info-logo
+#logo
 {
     background-image: url("/imagens/logo.png");
     background-repeat: no-repeat;
     height: 55px;
     width: 114px;
-    background-size:100% 100%;
+    float: left;
+    position: relative;
+    background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
 }
 
@@ -48,10 +76,10 @@ img
     background-repeat: no-repeat;
     width: 55px;
     height: 55px;
-    float:right;
-    position: absolute;
-    left: 135px;
-    top: 20px;
+    float: left;
+    position: relative;
+    left: 10px;
+    top: 5px;
 }
 
 #team-leader
@@ -77,7 +105,7 @@ img
 {
     position: absolute;
     width: 100px;
-    height: auto;
+    height: 34px;
     font-family: "QuickExpress";
     font-size: 8pt;
     left: 42px;
@@ -85,33 +113,26 @@ img
     color: goldenrod;
 }
 
-#info-links
+#links
 {
     width: 450px;
-    height: 55px;
+    height: 35px;
     line-height: 15px;
     float: right;
-    position: absolute;
-    margin: -8px 0px 0px 0px;
+    margin: -18px -2px -10px 0px;
     text-align: right;
     text-transform: lowercase;
-}
-
-#info-content
-{
-    width:450px;
-    margin: 20px 0px 0px 0px;
+    position: relative;
 }
 
 .page-title
 {
     color: #000000;
-    text-shadow: 0px 0px 4px #000000;
     font-family: "QuickExpress";
     font-size: 15pt;
     text-align: left;
-    text-transform:uppercase;
-    margin: -40px 0px 0px 180px;
+    text-transform: uppercase;
+    margin: 18px 0px 0px 180px;
 }
 
 .header-title
@@ -139,15 +160,17 @@ img
     line-height: 10pt;
 }
 
-#info-latest-news
+#latest-news
 {
     overflow:hidden;
     width:450px;
-    margin: 0px 0px 0px 0px;
+    height: 199px;
+    position: relative;
+    margin: 0px 0px 5px 0px;
     padding: 0px 0px 0px 0px;
 }
 
-#info-latest-news .viewport
+#latest-news .viewport
 {
     float: left;
     width: 330px;
@@ -165,40 +188,40 @@ img
     margin: 0px 0px 0px 0px;
 }
 
-#info-latest-news .overview-item
+#latest-news .overview-item
 {
     float: left;
     margin: 0px 0px 0px 0px;
     padding: 0px;
-    height: auto;
+    height: 199px;
     width: 330px;
 }
 
-#info-latest-news .pager
+#latest-news .pager
 {
     list-style: none;
     float: right;
     width: 100px;
-    height: auto;
+    height: 199px;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
 }
 
-#info-latest-news .pager-item
+#latest-news .pager-item
 {
     width: 100px;
-    height: auto;
+    height: 67px;
     position: relative;
     overflow: hidden;
 }
 
-#info-latest-news .pager div.pager-item:HOVER
+#latest-news .pager div.pager-item:HOVER
 {
     overflow: visible;
     position: relative;
 }
 
-#info-latest-news .pager div.pager-mask
+#latest-news .pager div.pager-mask
 {
     width: 100px;
     height: 63px;
@@ -207,13 +230,13 @@ img
     z-index: 1;
 }
 
-#info-latest-news .pager div.pager-mask:HOVER
+#latest-news .pager div.pager-mask:HOVER
 {
     -webkit-border-radius: 3px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0, 0, 0, 0.2)), color-stop(1%,rgba(0, 0, 0, 0.2)), color-stop(100%,rgba(0, 0, 0, 0.2)));
 }
 
-#info-latest-news .pager-title
+#latest-news .pager-title
 {
     font-size: 7pt;
     font-family: "Ebrima";
@@ -223,13 +246,13 @@ img
     background-color: #000000;
     padding: 0px 0px 2px 0px;
     text-align: center;
-    bottom: 5px;
+    bottom: 3px;
     text-transform: uppercase;
     border-radius: 0px 0px 3px 3px;
     z-index: 2;
 }
 
-#info-latest-news .pager-ativo
+#latest-news .pager-ativo
 {
     display: none;
     width: 10px;
@@ -240,7 +263,7 @@ img
     z-index: 2;
 }
 
-#info-latest-news .pager-seta
+#latest-news .pager-seta
 {
     width: 10px;
     height: 15px;
@@ -249,17 +272,17 @@ img
     position: absolute;
 }
 
-#info-latest-news .pager-link img
+#latest-news .pager-link img
 {
     -webkit-border-radius: 3px;
 }
 
-#info-latest-news .highlight
+#latest-news .highlight
 {
     text-shadow: 1px 1px 2px #000000;
     filter: dropshadow(color=#000000, offx=1, offy=1);
     width: 320px;
-    height: auto;
+    height: 26px;
     position: absolute;
     color: #FFFFFF;
     font-family: "Ebrima";
@@ -269,7 +292,7 @@ img
     padding: 0px 5px 0px 5px;
 }
 
-#info-latest-news .sub-text
+#latest-news .sub-text
 {
     text-shadow: 1px 1px 2px #000000;
     filter: dropshadow(color=#000000, offx=1, offy=1);
@@ -291,9 +314,19 @@ img
     height: 190px;
     float: right;
     position: absolute;
-    left: 347px;
+    left: 340px;
     margin-top: 6px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 1) 49%,rgba(0, 0, 0, 0) 100%);
+}
+
+#leaderboard-content
+{
+    overflow:hidden;
+    width:450px;
+    height: 134px;
+    position: relative;
+    margin: 0px 0px 5px 0px;
+    padding: 0px 0px 0px 0px;
 }
 
 #leaderboard
@@ -301,7 +334,7 @@ img
     font-family: "Ebrima";
     line-height: 14pt;
     width: 450px;
-    height: auto;
+    height: 134px;
     padding: 0px 0px 0px 0px;
     border-collapse: collapse;
     border-spacing: 0px;
@@ -337,7 +370,6 @@ img
 
 #leaderboard .name
 {
-    width:auto;
     text-align: left;
 }
 
@@ -410,91 +442,23 @@ img
 
 .hint-text-group
 {
-    width: auto;
     height: 10px;
     font-family: "Ebrima";
     font-size: 8pt;
     margin: 0px 10px 0px 20px;
 }
 
-.display-block
+#latest-matchs
 {
-    display: block!important;
-}
-
-.display-none
-{
-    display: none;
-}
-.align-left
-{
-    text-align: left;
-}
-
-.align-right
-{
-    text-align: right;
-}
-
-#info-home
-{
-    width: 24px;
-    height: 24px;
-    float: right;
-    position: absolute;
-    margin: 13px 0px 0px 263px
-}
-
-.text-score
-{
-    color: #A8A8A8;
-    font-family: "Ebrima";
-    font-size: 12pt;
-    display: none;
-}
-
-#home-score
-{
-    float: right;
-    position: absolute;
-    margin: 13px 0px 0px 292px
-}
-
-#visitants-score
-{
-    float: right;
-    position: absolute;
-    margin: 13px 0px 0px 342px
-}
-
-#info-versus
-{
-    width: 20px;
-    height: 15px;
-    float: right;
-    background-image: url("/imagens/versus.png");
-    background-size:100% 100%;
-    -webkit-background-size: 100% 100%;
-    position: absolute;
-    margin: 17px 0px 0px 312px;
-}
-
-#info-visitants
-{
-    width: 24px;
-    height: 24px;
-    float: right;
-    position: absolute;
-    margin: 13px 0px 0px 358px;
-}
-
-#info-latest-matchs
-{
-    height: auto;
     overflow:hidden;
+    width:450px;
+    height: 50px;
+    position: relative;
+    margin: 0px 0px 5px 0px;
+    padding: 0px 0px 0px 0px;
 }
 
-#info-latest-matchs .viewport
+#latest-matchs .viewport
 {
     float: left;
     width: 410px;
@@ -505,7 +469,7 @@ img
     border-radius: 3px;
 }
 
-#info-latest-matchs .buttons
+#latest-matchs .buttons
 {
     display: block;
     float: left;
@@ -527,16 +491,87 @@ img
     margin-top: 16px;
 }
 
-#info-latest-matchs .disabled
+#latest-matchs .disabled
 {
     opacity: 0.5;
     cursor: default;
 }
 
-#info-latest-matchs .overview-item
+#latest-matchs .overview-item
 {
     float: left;
     padding: 0px 0px 0px 5px;
     height: 50px;
     width: 405px;
+}
+
+#home
+{
+    width: 24px;
+    height: 24px;
+    float: right;
+    position: absolute;
+    margin: 13px 0px 0px 263px
+}
+
+.text-score
+{
+    color: #A8A8A8;
+    font-family: "Ebrima";
+    font-size: 12pt;
+    display: none;
+}
+
+#score
+{
+    float: right;
+    position: absolute;
+    margin: 13px 0px 0px 292px
+}
+
+#visitants-score
+{
+    float: right;
+    position: absolute;
+    margin: 13px 0px 0px 342px
+}
+
+#versus
+{
+    width: 20px;
+    height: 15px;
+    float: right;
+    background-image: url("/imagens/versus.png");
+    background-size:100% 100%;
+    -webkit-background-size: 100% 100%;
+    position: absolute;
+    margin: 17px 0px 0px 312px;
+}
+
+#visitants
+{
+    width: 24px;
+    height: 24px;
+    float: right;
+    position: absolute;
+    margin: 13px 0px 0px 358px;
+}
+
+.display-block
+{
+    display: block!important;
+}
+
+.display-none
+{
+    display: none;
+}
+.align-left
+{
+    text-align: left;
+}
+
+.align-right
+{
+    text-align: right;
 }
