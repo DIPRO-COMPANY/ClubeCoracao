@@ -67,10 +67,12 @@ function setEvents()
 {
     $("div.change-team").click(function()
     {
-        if(confirm("Tem certeza que deseja alterar o seu clube do coração?"))
+        Messi.ask("Deseja realmente alterar o seu clube do coração?", function(value)
         {
-            loadPage("");
-        }
+            if(value === "Y")
+                loadPage("");
+        },
+        { width: "98%" });
     });
 }
 
