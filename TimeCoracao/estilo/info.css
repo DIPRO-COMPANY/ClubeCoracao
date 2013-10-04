@@ -21,11 +21,12 @@ img
 #buttons-bar
 {
     width: 450px;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px -20px 0px;
     top: 0px;
     padding: 0px 0px 0px 0px;
     position: relative;
     float: left;
+    z-index: 2;
 }
 
 .button
@@ -54,20 +55,20 @@ img
 {
     border-bottom: 1px solid rgb(112, 112, 112);
     width: 450px;
+    height: 63px;
     position: relative;
     float:left;
 }
 
-#logo
+#top-background
 {
-    background-image: url("/imagens/logo.png");
-    background-repeat: no-repeat;
-    height: 55px;
-    width: 114px;
-    float: left;
+    width: 450px;
+    height: 29px;
     position: relative;
-    background-size: 100% 100%;
-    -webkit-background-size: 100% 100%;
+    float: right;
+    z-index: -1;
+    top: -41px;
+    border-radius: 3px;
 }
 
 #team-streamer
@@ -123,16 +124,17 @@ img
     text-align: right;
     text-transform: lowercase;
     position: relative;
+    padding-right: 2px;
 }
 
 .page-title
 {
-    color: #000000;
+    color: #585858;
     font-family: "QuickExpress";
     font-size: 15pt;
     text-align: left;
     text-transform: uppercase;
-    margin: 18px 0px 0px 180px;
+    margin: 19px 0px 0px 75px;
 }
 
 .header-title
