@@ -65,10 +65,12 @@ function getTeamsList(callback)
         var index = 0;
         var newTeamsList = [];
 
-        // Pega a parte do json retornado que lista os times da primeira divisão.
+        // Gets the first division team's list.
+        // Obtem a lista dos times da primeira divisão.
         teamsList = teamsList.lista_de_jogos.campeonato.edicao_campeonato.equipes;
 
-        // Eu preciso criar um array válido com os dados dos times, 20 times no caso.
+        // Creates a valid array with the team's data, 20 teams.
+        // Cria um array válido com os dados dos times, 20 times.
         while(teamsLength < 20)
         {
             if(teamsList[index] !== undefined)
@@ -80,7 +82,8 @@ function getTeamsList(callback)
             index++;
         }
 
-        // Agora eu preciso ordená-lo com base no nome do time e retorná-lo na função de callback.
+        // Sort the array in alphabetic order.
+        // Ordena o array em ordem alfabética.
         newTeamsList.sort(function(valueA, valueB)
         {
             if (valueA.slug > valueB.slug)
@@ -90,7 +93,7 @@ function getTeamsList(callback)
                 return -1;
 
             return 0;
-          });
+        });
 
         callback(newTeamsList);
     });
@@ -114,9 +117,9 @@ function setTeamsListCarousel(teamsListData)
         duration: 500,
         beforeMove: function(element, index)
         {
-            // Exibe o nome do time em foco e armazena seus dados.
             $("#hint").attr("class", "click " + teamsListData[index].slug).html(accentInsensitive(teamsListData[index].nome_popular));
 
+            // Creates rank property with 0 value.
             // Cria a propriedade rank com o valor 0.
             teamsListData[index].rank = 0;
             teamsListData[index].officialLink = getOfficialLink(teamsListData[index].slug);
