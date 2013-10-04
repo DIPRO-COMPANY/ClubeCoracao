@@ -1,14 +1,14 @@
 {
     "manifest_version": 2,
     "name": "Clube do Coração",
-    "description": "Acompanhe seu clube do coração sem digitar endereço algum. Tenha informações atualizadas sobre a situação do seu time no brasileirão 24 horas por dia.",
-    "version": "1.0",
+    "description": "Tenha informações atualizadas sobre a situação do seu time no brasileirão 24 horas por dia.",
+    "version": "1.0.2",
     "icons":
     {
-        "16": "/imagens/logo.png",
-        "32": "/imagens/logo.png",
-        "48": "/imagens/logo.png",
-        "128": "/imagens/logo.png"
+        "16": "/imagens/icon.png",
+        "32": "/imagens/icon.png",
+        "48": "/imagens/icon.png",
+        "128": "/imagens/icon.png"
     },
     "permissions":
     [

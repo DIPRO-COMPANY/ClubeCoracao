@@ -106,11 +106,15 @@ function getLSData(id, json, callback)
     }, callback);
 }
 
+// Shows a loading icon during Ajax requests.
+// Mostra um ícone de loading durante requisições Ajax.
 function showLoading(id)
 {
     $("<div class=\"loading\"><img src=\"/imagens/loading.gif\" /></div>").appendTo(id);
 }
 
+// Hides loading icon.
+// Esconde o ícone de loading.
 function hideLoading(id)
 {
     $(id).find(".loading").remove();

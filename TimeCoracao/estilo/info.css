@@ -45,11 +45,18 @@ img
     cursor: pointer;
 }
 
-.settings, .settings:HOVER
+.twitter, .twitter:HOVER
 {
-    background-position: -359px -168px!important;
+    background-position: -7px -8px!important;
     cursor: pointer;
 }
+
+.facebook, .facebook:HOVER
+{
+    background-position: -39px -8px!important;
+    cursor: pointer;
+}
+
 
 #top
 {
@@ -230,12 +237,16 @@ img
     position: absolute;
     float: right;
     z-index: 1;
+    -webkit-border-radius: 3px;
+    opacity: 0;
 }
 
 #latest-news .pager div.pager-mask:HOVER
 {
-    -webkit-border-radius: 3px;
+    opacity: 1;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0, 0, 0, 0.2)), color-stop(1%,rgba(0, 0, 0, 0.2)), color-stop(100%,rgba(0, 0, 0, 0.2)));
+    -webkit-transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear;
 }
 
 #latest-news .pager-title

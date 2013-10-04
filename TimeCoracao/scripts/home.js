@@ -46,14 +46,14 @@ function mainHome()
         if(teamsListData !== "error")
         {
             setTeamsListCarousel(teamsListData);
+
+            hideLoading("#team-select");
         }
         else
         {
             $("#hint").attr("class", "error").html("erro ao recuperar a lista de times. voce está off-line?");
         }
     });
-
-    hideLoading("#team-select");
 }
 
 function getTeamsList(callback)

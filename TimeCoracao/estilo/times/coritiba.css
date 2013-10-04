@@ -3,6 +3,11 @@ a, a:ACTIVE, a:HOVER, a:FOCUS, .team-color
     color: #1B9656;
 }
 
+#latest-news .pager-title
+{
+    background-color: #1B9656;
+}
+
 #top-background
 {
     background: -webkit-linear-gradient(left, rgba(27, 150, 86, 0.08) 0%, rgba(27, 150, 86, 0.03) 80%, rgba(27, 150, 86, 0) 100%);

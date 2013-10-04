@@ -3,6 +3,11 @@ a, a:ACTIVE, a:HOVER, a:FOCUS, .team-color
     color: #000000;
 }
 
+#latest-news .pager-title
+{
+    background-color: #000000;
+}
+
 #top-background
 {
     background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.03) 80%, rgba(0, 0, 0, 0) 100%);
