@@ -1,19 +1,13 @@
 @font-face
 {
     font-family: QuickExpress;
-    src: url("fonts/QuickExpress.ttf");
+    src: url("/estilo/fonts/QuickExpress.ttf");
 }
 
 @font-face
 {
     font-family: "Ebrima";
-    src: url("fonts/Ebrima.ttf");
-}
-
-@font-face
-{
-    font-family: "EbrimaBold";
-    src: url("fonts/Ebrimabd.ttf");
+    src: url("/estilo/fonts/Ebrima.ttf");
 }
 
 .loading
