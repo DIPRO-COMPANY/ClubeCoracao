@@ -95,7 +95,7 @@ p
 
 #hint
 {
-    font-family: QuickExpressWIN, QuickExpressLNX, QuickExpressMAC;
+    font-family: QuickExpress;
     font-size: 10pt;
     text-transform: uppercase;
     padding: 7px 0px 7px 0px;
@@ -104,7 +104,7 @@ p
 
 .error
 {
-    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC!important;
+    font-family: Ebrima!important;
     font-size: 8pt!important;
     font-weight: bold!important;
     color: #C80000!important;

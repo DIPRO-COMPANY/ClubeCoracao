@@ -1,37 +1,13 @@
 @font-face
 {
-    font-family: QuickExpressWIN;
+    font-family: QuickExpress;
     src: url("/estilo/fonts/QuickExpressWIN.ttf");
 }
 
 @font-face
 {
-    font-family: QuickExpressLNX;
-    src: url("/estilo/fonts/QuickExpressLNX.ttf");
-}
-
-@font-face
-{
-    font-family: QuickExpressMAC;
-    src: url("/estilo/fonts/QuickExpressMAC.ttf");
-}
-
-@font-face
-{
-    font-family: EbrimaWIN;
+    font-family: Ebrima;
     src: url("/estilo/fonts/EbrimaWIN.ttf");
-}
-
-@font-face
-{
-    font-family: EbrimaLXN;
-    src: url("/estilo/fonts/EbrimaLNX.ttf");
-}
-
-@font-face
-{
-    font-family: EbrimaMAC;
-    src: url("/estilo/fonts/EbrimaMAC.ttf");
 }
 
 .loading

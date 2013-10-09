@@ -5,7 +5,7 @@ body
 
 a, a:ACTIVE, a:HOVER, a:FOCUS
 {
-    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-family: Ebrima;
     font-size: 8pt;
     font-weight: bolder;
     text-decoration: none;
@@ -168,7 +168,7 @@ img
 .text-bold
 {
     color: #666666;
-    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-family: Ebrima;
     font-size: 8pt;
     font-weight: bold;
     line-height: 10pt;
@@ -257,7 +257,7 @@ img
 #latest-news .pager-title
 {
     font-size: 7pt;
-    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-family: Ebrima;
     color: #FFFFFF;
     position: absolute;
     width: 100%;
@@ -303,7 +303,7 @@ img
     height: 26px;
     position: absolute;
     color: #FFFFFF;
-    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-family: Ebrima;
     text-transform: uppercase;
     font-size: 14pt;
     font-weight: bold;
@@ -319,7 +319,7 @@ img
     height: 28px;
     position: absolute;
     color: #FFFFFF;
-    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-family: Ebrima;
     font-size: 8pt;
     font-weight: bold;
     padding: 0px 5px 0px 5px;
@@ -349,7 +349,7 @@ img
 
 #leaderboard
 {
-    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-family: Ebrima;
     line-height: 14pt;
     width: 450px;
     height: 134px;
@@ -461,7 +461,7 @@ img
 .hint-text-group
 {
     height: 10px;
-    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-family: Ebrima;
     font-size: 8pt;
     margin: 0px 10px 0px 20px;
 }
@@ -535,7 +535,7 @@ img
 .text-score
 {
     color: #A8A8A8;
-    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-family: Ebrima;
     font-size: 12pt;
     display: none;
 }
