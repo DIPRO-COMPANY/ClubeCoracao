@@ -1,0 +1,119 @@
+#search-results
+{
+    width: 100%;
+    position: relative;
+}
+
+#search-text
+{
+    border-radius: 3px;
+    border-width: 1px;
+    width: 140px;
+    height: 24px;
+    padding: 0px 0px 0px 5px;
+    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-size: 10pt;
+    background-color: #F4F4F4;
+}
+
+.search-cartola
+{
+    background-position: -327px -264px!important;
+    width: 26px;
+    height: 26px;
+    float: right;
+    position: relative;
+    left: -201px;
+    cursor: default;
+}
+
+.search-cartola:HOVER
+{
+    cursor: pointer;
+}
+
+.results-row
+{
+    list-style: none;
+    padding: 0px;
+}
+
+.results-row li
+{
+    width: 100%;
+    height: 32px;
+    padding-top: 4px;
+    border-bottom-style: outset;
+    border-bottom-width: 1px;
+}
+
+.hover-mask
+{
+    width: 100%;
+    height: 32px;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.08) 100%);
+    opacity: 0;
+}
+
+.hover-mask:HOVER
+{
+    opacity: 1;
+    cursor: pointer;
+    -webkit-transition: opacity 0.2s linear;
+}
+
+.cartola-badge
+{
+    width: 30px;
+    height: 28px;
+    position: relative;
+    float: left;
+}
+
+.cartola-badge img
+{
+    width: 28px;
+    height: 28px;
+    margin-left: 3px;
+}
+
+.cartola-team
+{
+    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-size: 14pt;
+    font-weight: bold;
+    position: relative;
+    width: 170px;
+    height: 28px;
+    float: left;
+}
+
+.cartola-team span
+{
+    position: relative;
+    left: 8px;
+    top: 0px;
+}
+
+.cartola-owner
+{
+    background-image: url("/imagens/owner.png");
+    background-size: auto 79%;
+    background-position: 0px 4px;
+    background-repeat: no-repeat;
+    position: relative;
+    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC;
+    font-size: 12px;
+    font-weight: normal;
+    width: 140px;
+    height: 28px;
+    float: right;
+}
+
+.cartola-owner span
+{
+    position: relative;
+    left: 26px;
+    top: 6px;
+}

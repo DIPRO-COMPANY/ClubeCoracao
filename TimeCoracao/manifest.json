@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Clube do Coração",
     "description": "Tenha informações atualizadas sobre o seu time no brasileirão 24 horas por dia.",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "icons":
     {
         "16": "/imagens/icon.png",

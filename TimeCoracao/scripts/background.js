@@ -4,62 +4,61 @@ function main()
 
     if(teamData !== "")
     {
-        // Define o ícone do aplicativo em caso de times previamente selecionados com o escudo do time.
         setTeamDefaultIcon(teamData.escudo_pequeno);
 
-        // Define a badge com a posição do time no campeonato.
         setTeamStatusBadge(teamData.slug, teamData.rank);
     }
     else
     {
-        // Define o ícone padrão do aplicativo.
         setTeamDefaultIcon("");
 
-        // Limpa a badge de status de time.
         setTeamStatusBadge("", 0);
     }
 }
 
-// Trata as mensagens entre a popup e o background.
+// Listens for messages between the pop-up and the background.
+// Escuta as mensagens entre a popup e o background.
 function onMessage(request, sender, sendResponse)
 {
     switch(request.action)
     {
         case "saveTeamData":
-            // Salva os dados do time selecionado na local storage.
             saveTeamData(request.teamData);
 
             if(request.teamData !== "")
-                // Define o ícone da extensão com o escudo do time.
                 setTeamDefaultIcon(request.teamData.escudo_pequeno);
             else
             {
-                // Define o ícone padrão da extensão.
                 setTeamDefaultIcon("");
             }
             sendResponse(true);
 
             break;
         case "getJSON":
+            // Executes a XHR call and returns a JSON in pt-br format.
             // Executa uma chamada XHR e retorna um JSON em formato pt-br.
             getJSON(request.url, sendResponse);
 
             break;
         case "getHTML":
+            // Executes a XHR call and returns a html content.
             // Executa uma chamada XHR e retorna um conteúdo HTML.
             getHTML(request.url, sendResponse);
 
             break;
         case "getTeamData":
+            // Returns a JSON with the stored data in Local Storage.
             // Retorna um JSON com os dados armazenados na local storage.
             sendResponse(recoverTeamData());
             break;
         case "getLSData":
+            // Return some information stored in Local Storage
             // Retorna alguma informação armazenada na local storage.
             sendResponse(recoverLSData(request.id, request.json));
             break;
         case "setBadge":
-            // Define badges com o status do time no campeonato.
+            // Shows a badge with the team's position in the championship.
+            // Exibe uma badge com a posição do time no campeonato.
             setTeamStatusBadge(request.team, request.rank);
 
             break;
@@ -150,7 +149,8 @@ function getHTML(url, callback)
 
 function parseUnicodePtBr(data)
 {
-    // Procura pos caracteres especiais representados em unicode e os converte para o formato pt-br.
+    // Search for special characters represented in unicode and convert to the pt-br format.
+    // Procura por caracteres especiais representados em unicode e os converte para o formato pt-br.
     return data.replace(/\\u(\w{4})/g, function(match){ return unicodeToPtBr(match); });
 }
 
@@ -158,12 +158,11 @@ function unicodeToPtBr(unicode)
 {
     hexa = "0x" + unicode.replace(/\\u/, "");
 
+    // Converts the number in hex to integer a gets the charcode in pt-br.
     // Converte o número em hexa para inteiro e pega seu charcode em pt-br.
     return String.fromCharCode(parseInt(hexa));
 }
 
-//Escuta as mensagens da popup.
 chrome.extension.onMessage.addListener(onMessage);
 
-// Executa a função principal.
 main();

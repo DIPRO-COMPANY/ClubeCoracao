@@ -74,6 +74,12 @@ function setEvents()
         },
         { width: "98%" });
     });
+
+    $("div.cartola").click(function()
+    {
+        if($("#cartola").length === 0)
+            Messi.load("cartola.html", { width: "400px", height: "400px" });
+    });
 }
 
 function getLatestNews(name, callback)

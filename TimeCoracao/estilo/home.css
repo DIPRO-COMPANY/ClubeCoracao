@@ -15,7 +15,7 @@ p
 {
     width: 350px;
     height: 129px;
-    background-image: url('/imagens/cdc.png');
+    background-image: url("/imagens/cdc.png");
     background-size: 100% 100%;
     margin: 0px 0px 0px 1px;
 }
@@ -24,7 +24,7 @@ p
 {
     width: 340px;
     height: 29px;
-    background-image: url('/imagens/select.png');
+    background-image: url("/imagens/select.png");
     background-size: 100% 100%;
     margin: 40px 0px 10px 7px;
 }
@@ -95,7 +95,7 @@ p
 
 #hint
 {
-    font-family: QuickExpress;
+    font-family: QuickExpressWIN, QuickExpressLNX, QuickExpressMAC;
     font-size: 10pt;
     text-transform: uppercase;
     padding: 7px 0px 7px 0px;
@@ -104,7 +104,7 @@ p
 
 .error
 {
-    font-family: "Ebrima"!important;
+    font-family: EbrimaWIN, EbrimaLXN, EbrimaMAC!important;
     font-size: 8pt!important;
     font-weight: bold!important;
     color: #C80000!important;
