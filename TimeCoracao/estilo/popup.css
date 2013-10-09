@@ -1,13 +1,25 @@
 @font-face
 {
     font-family: QuickExpress;
-    src: url("/estilo/fonts/QuickExpressWIN.ttf");
+    src: url("/estilo/fonts/QuickExpress.ttf");
 }
 
 @font-face
 {
-    font-family: Ebrima;
-    src: url("/estilo/fonts/EbrimaWIN.ttf");
+    font-family: ContinuumMedium;
+    src: url("/estilo/fonts/ContinuumMedium.ttf");
+}
+
+@font-face
+{
+    font-family: SansationBold;
+    src: url("/estilo/fonts/SansationBold.ttf");
+}
+
+@font-face
+{
+    font-family: EASportsCoversSC;
+    src: url("/estilo/fonts/EASports.ttf");
 }
 
 .loading

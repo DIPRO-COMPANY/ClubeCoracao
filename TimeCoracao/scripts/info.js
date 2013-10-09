@@ -233,17 +233,17 @@ function populateLeaderBoardContainer(leaderBoard, rank)
                 groupClass = "libertadores";
 
             teamRankingRows += "<tr>\n \
-                                    <td class=\"ranking " + groupClass + "\">" + leaderBoard.classificacao[index].ordem + "</td>\n \
-                                    <td class=\"name text-bold" + (rank === index ? " team-color": "") + "\">" + leaderBoard.classificacao[index].nome_popular + "</td>\n \
-                                    <td class=\"score team-color\">" + leaderBoard.classificacao[index].pontos + "</td>\n \
-                                    <td class=\"match team-color\">" + leaderBoard.classificacao[index].jogos + "</td>\n \
-                                    <td class=\"win team-color\">" + leaderBoard.classificacao[index].vitorias + "</td>n\ \
-                                    <td class=\"draw text-bold\">" + leaderBoard.classificacao[index].empates + "</td>\n \
-                                    <td class=\"defeat text-bold\">" + leaderBoard.classificacao[index].derrotas + "</td>\n \
-                                    <td class=\"goals-pro text-bold\">" + leaderBoard.classificacao[index].gols_pro + "</td>\n \
-                                    <td class=\"goals-agin text-bold\">" + leaderBoard.classificacao[index].gols_contra + "</td>\n \
-                                    <td class=\"goals-difference text-bold\">" + leaderBoard.classificacao[index].saldo_gols + "</td>\n \
-                                    <td class=\"productivity team-color\">" + leaderBoard.classificacao[index].aproveitamento + "</td>\n \
+                                    <td class=\"ranking text-bold " + groupClass + "\">" + leaderBoard.classificacao[index].ordem + "</td>\n \
+                                    <td class=\"name " + (rank === index ? " team-color text-bold": "") + "\">" + leaderBoard.classificacao[index].nome_popular + "</td>\n \
+                                    <td class=\"score team-color text-bold\">" + leaderBoard.classificacao[index].pontos + "</td>\n \
+                                    <td class=\"match team-color text-bold\">" + leaderBoard.classificacao[index].jogos + "</td>\n \
+                                    <td class=\"win team-color text-bold\">" + leaderBoard.classificacao[index].vitorias + "</td>n\ \
+                                    <td class=\"draw\">" + leaderBoard.classificacao[index].empates + "</td>\n \
+                                    <td class=\"defeat\">" + leaderBoard.classificacao[index].derrotas + "</td>\n \
+                                    <td class=\"goals-pro\">" + leaderBoard.classificacao[index].gols_pro + "</td>\n \
+                                    <td class=\"goals-agin\">" + leaderBoard.classificacao[index].gols_contra + "</td>\n \
+                                    <td class=\"goals-difference\">" + leaderBoard.classificacao[index].saldo_gols + "</td>\n \
+                                    <td class=\"productivity team-color text-bold\">" + leaderBoard.classificacao[index].aproveitamento + "</td>\n \
                                 </tr>";
         }
     
@@ -290,7 +290,7 @@ function setCarouselLatestMatchs(latestMatchs)
                            <div id=\"versus\"></div>\n \
                            <p id=\"visitants-score\" class=\"text-score" + displayBlock + "\">" + latestMatchs[index].placar_oficial_visitante + "</p>\n \
                            <div id=\"visitants\"><img title=\"" + latestMatchs[index].apelido_visitante + "\" src=\"http://s.glbimg.com/es/ge/f/" + latestMatchs[index].escudo_visitante.pequeno + "\" alt=\"\" title=\"\" /></div>\n \
-                           <p class=\"text-bold\">" + latestMatchs[index].nome_campeonato + (!isNaN(latestMatchs[index].rodada) ? " - " + latestMatchs[index].rodada + "ª rodada" : "") + "<br />" + matchDateTime + " - " + latestMatchs[index].nome_popular + "</p>\n \
+                           <p>" + latestMatchs[index].nome_campeonato + (!isNaN(latestMatchs[index].rodada) ? " - " + latestMatchs[index].rodada + "ª rodada" : "") + "<br />" + matchDateTime + " - " + latestMatchs[index].nome_popular + "</p>\n \
                        </div>";
     }
 

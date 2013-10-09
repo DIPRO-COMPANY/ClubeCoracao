@@ -5,9 +5,6 @@ body
 
 a, a:ACTIVE, a:HOVER, a:FOCUS
 {
-    font-family: Ebrima;
-    font-size: 8pt;
-    font-weight: bolder;
     text-decoration: none;
     cursor: pointer;
 }
@@ -120,7 +117,7 @@ img
     width: 100px;
     height: 34px;
     font-family: "QuickExpress";
-    font-size: 8pt;
+    font-size: 0.75em;
     left: 42px;
     top: 10px;
     color: goldenrod;
@@ -139,11 +136,17 @@ img
     padding-right: 2px;
 }
 
+#links a, #links a:ACTIVE, #links a:HOVER, #links a:FOCUS
+{
+    font-family: SansationBold;
+    font-size: 0.75em;
+}
+
 .page-title
 {
     color: #585858;
     font-family: "QuickExpress";
-    font-size: 15pt;
+    font-size: 1.25em;
     text-align: left;
     text-transform: uppercase;
     margin: 19px 0px 0px 75px;
@@ -153,7 +156,7 @@ img
 {
     color: #000000;
     font-family: "QuickExpress";
-    font-size: 8pt;
+    font-size: 0.75em;
     text-align: left;
 }
 
@@ -163,15 +166,6 @@ img
     height:1px;
     margin:-3px 0px 9px 0px;
     background: -webkit-linear-gradient(left,  rgba(0, 0, 0, 0.65) 0%,rgba(0, 0, 0, 0) 100%);
-}
-
-.text-bold
-{
-    color: #666666;
-    font-family: Ebrima;
-    font-size: 8pt;
-    font-weight: bold;
-    line-height: 10pt;
 }
 
 #latest-news
@@ -256,13 +250,12 @@ img
 
 #latest-news .pager-title
 {
-    font-size: 7pt;
-    font-family: Ebrima;
+    font-size: 0.6em;
+    font-family: SansationBold;
     color: #FFFFFF;
     position: absolute;
     width: 100%;
-    background-color: #000000;
-    padding: 0px 0px 2px 0px;
+    padding: 2px 0px 2px 0px;
     text-align: center;
     bottom: 3px;
     text-transform: uppercase;
@@ -303,10 +296,9 @@ img
     height: 26px;
     position: absolute;
     color: #FFFFFF;
-    font-family: Ebrima;
+    font-family: EASportsCoversSC;
     text-transform: uppercase;
-    font-size: 14pt;
-    font-weight: bold;
+    font-size: 1.5em;
     padding: 0px 5px 0px 5px;
 }
 
@@ -319,11 +311,12 @@ img
     height: 28px;
     position: absolute;
     color: #FFFFFF;
-    font-family: Ebrima;
-    font-size: 8pt;
-    font-weight: bold;
+    font-family: SansationBold;
+    font-size: 0.75em;
     padding: 0px 5px 0px 5px;
-    margin: -45px 0px 0px 0px;
+    margin: -42px 0px 0px 0px;
+    border-radius: 0px 0px 3px 3px;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .separator
@@ -332,7 +325,7 @@ img
     height: 190px;
     float: right;
     position: absolute;
-    left: 340px;
+    left: 339px;
     margin-top: 6px;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 1) 49%,rgba(0, 0, 0, 0) 100%);
 }
@@ -349,8 +342,8 @@ img
 
 #leaderboard
 {
-    font-family: Ebrima;
-    line-height: 14pt;
+    font-family: ContinuumMedium;
+    line-height: 1.2em;
     width: 450px;
     height: 134px;
     padding: 0px 0px 0px 0px;
@@ -360,16 +353,14 @@ img
 
 #leaderboard thead tr
 {
-    font-size: 8pt;
-    font-weight: bold;
+    font-size: 0.75em;
     text-align: center;
-    line-heigth: 18px;
     border: 2px solid #FFFFFF;
 }
 
 #leaderboard tbody tr
 {
-    font-size: 8pt;
+    font-size: 0.75em;
     text-align: center;
     border: 2px solid #FFFFFF;
 }
@@ -381,7 +372,6 @@ img
 
 #leaderboard .ranking
 {
-    font-weight: bold;
     width: 22px;
     border-radius: 6px 0px 0px 6px;
 }
@@ -393,35 +383,31 @@ img
 
 #leaderboard .score
 {
-    width:20px;
-    font-weight: bold;
+    width: 20px;
 }
 #leaderboard .match
 {
-    width:20px;
-    font-weight: bold;
+    width: 20px;
 }
 
 #leaderboard .win
 {
-    width:20px;
-    font-weight: bold;
+    width: 20px;
 }
 
 #leaderboard .draw, #leaderboard .defeat
 {
-    width:20px;
+    width: 20px;
 }
 
 #leaderboard .goals-pro, #leaderboard .goals-difference, #leaderboard .goals-agin
 {
-    width:24px;
+    width: 24px;
 }
 
 #leaderboard .productivity
 {
-    width:30px;
-    font-weight: bold;
+    width: 36px;
     border-radius: 0px 6px 6px 0px;
 }
 
@@ -461,8 +447,8 @@ img
 .hint-text-group
 {
     height: 10px;
-    font-family: Ebrima;
-    font-size: 8pt;
+    font-family: ContinuumMedium;
+    font-size: 0.75em;
     margin: 0px 10px 0px 20px;
 }
 
@@ -503,6 +489,8 @@ img
 
 .arrow
 {
+    font-family: SansationBold;
+    font-size: 0.8em;
     display: block;
     width: 14px;
     text-align: center;
@@ -521,6 +509,9 @@ img
     padding: 0px 0px 0px 5px;
     height: 50px;
     width: 405px;
+    font-family: ContinuumMedium;
+    font-size: 0.75em;
+    line-height: 13px;
 }
 
 #home
@@ -535,8 +526,8 @@ img
 .text-score
 {
     color: #A8A8A8;
-    font-family: Ebrima;
-    font-size: 12pt;
+    font-family: ContinuumMedium;
+    font-size: 1.5em;
     display: none;
 }
 
@@ -544,14 +535,14 @@ img
 {
     float: right;
     position: absolute;
-    margin: 13px 0px 0px 292px
+    margin: 18px 0px 0px 292px
 }
 
 #visitants-score
 {
     float: right;
     position: absolute;
-    margin: 13px 0px 0px 342px
+    margin: 18px 0px 0px 342px
 }
 
 #versus
@@ -592,4 +583,9 @@ img
 .align-right
 {
     text-align: right;
+}
+
+.text-bold
+{
+    font-weight: bold;
 }
