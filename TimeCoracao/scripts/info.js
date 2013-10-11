@@ -3,7 +3,7 @@ function mainInfo(teamData)
     // Configura o layout da página com os dados do time escolhido.
     setTeamBasicInformation(teamData);
 
-    setEvents();
+    setInfoEvents();
 
     showLoading("#latest-news");
 
@@ -63,7 +63,7 @@ function setTeamBasicInformation(teamData)
     $("#link-oficial").attr("href", teamData.officialLink);
 }
 
-function setEvents()
+function setInfoEvents()
 {
     $("div.change-team").click(function()
     {
@@ -77,8 +77,7 @@ function setEvents()
 
     $("div.cartola").click(function()
     {
-        if($("#cartola").length === 0)
-            Messi.load("cartola.html", { width: "400px", height: "400px" });
+        loadPage("cartola");
     });
 }
 
@@ -93,9 +92,16 @@ function getLatestNews(name, callback)
         // Extrai as informações do html buscado e monta um json com os dados formatados.
         $(htmlData).find(".conteudo-extra").each(function()
         {
-            title = $(this).find("a:last .globo-carrossel-titulo-texto").html();
+            title = $(this).find("a:last .globo-carrossel-chapeu-texto").html();
+            subtitle = $(this).find("a:last .globo-carrossel-titulo-texto").html();
+
+            if(title === undefined)
+            {
+                title = $(this).find("a:last .globo-carrossel-titulo-texto").html();
+                subtitle = $(this).find("a:last .globo-carrossel-subtitulo-texto").html();
+            }
+
             align = ($(this).find(".destaque-carrossel").attr("class").indexOf("right") > -1 ? "align-right" : "align-left");
-            subtitle = $(this).find("a:last .globo-carrossel-subtitulo-texto").html();
             link = $(this).find("a:last").attr("href");
             image = $(this).find("img").attr("src");
 
@@ -326,7 +332,7 @@ function formatMatchDateTime(matchDateTime)
     try
     {
         var weekDay = new Array("Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab");
-        var day = matchDateTime.getUTCDay();
+        var day = matchDateTime.getDay();
 
         matchDate = weekDay[day] + ". " + formatNumber(matchDateTime.getDate()) + "/" + formatNumber((matchDateTime.getMonth() + 1));
 

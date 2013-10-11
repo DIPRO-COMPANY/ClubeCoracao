@@ -11,6 +11,27 @@ function mainHome()
     // Remove a badge de status.
     setStatusBadge("", 0);
 
+    setHomeEvents();
+
+    showLoading("#team-select");
+
+    getHomeTeamsList(function(teamsListData)
+    {
+        if(teamsListData !== "error")
+        {
+            setTeamsListCarousel(teamsListData);
+
+            hideLoading("#team-select");
+        }
+        else
+        {
+            $("#hint").attr("class", "error").html("erro ao recuperar a lista de times. voce está off-line?");
+        }
+    });
+}
+
+function setHomeEvents()
+{
     $("#hint").click(function()
     {
         // Saves team's data.
@@ -38,25 +59,9 @@ function mainHome()
 
         clickTime = currentTime;
     });
-
-    showLoading("#team-select");
-
-    getTeamsList(function(teamsListData)
-    {
-        if(teamsListData !== "error")
-        {
-            setTeamsListCarousel(teamsListData);
-
-            hideLoading("#team-select");
-        }
-        else
-        {
-            $("#hint").attr("class", "error").html("erro ao recuperar a lista de times. voce está off-line?");
-        }
-    });
 }
 
-function getTeamsList(callback)
+function getHomeTeamsList(callback)
 {
     getJSON("http://globoesporte.globo.com/dynamo/futebol/campeonato/campeonato-brasileiro/brasileirao2013/classificacao.json",
     function(teamsList)

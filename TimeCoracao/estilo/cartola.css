@@ -1,44 +1,278 @@
-#search-results
+body
+{
+    width: 450px!important;
+}
+
+a, a:active, a:hover, a:focus
+{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+img
+{
+    width:100%;
+    height: auto;
+}
+
+li
+{
+    -webkit-transition: box-shadow 0.2s linear;
+}
+
+input, span
+{
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.075);
+    -webkit-transition: box-shadow linear .1s;
+    box-shadow: none;
+}
+
+input:focus
+{
+    box-shadow: 0px 0px 5px -1px rgba(143, 143, 143, 1);
+}
+
+input:focus ~ .input-prepend
+{
+    box-shadow: 0px 0px 5px -1px rgba(143, 143, 143, 1);
+}
+
+#cartola-top
+{
+    width: 100%;
+    height: 80px;
+    position: relative;
+    float: left;
+    margin-bottom: 5px;
+    top: 0px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url("http://s.glbimg.com/es/ge/static/live/cartolafc/img/widgets/header-fundo.jpg?2fa9a675a8a1")
+}
+
+#cartola-footer
+{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    float: left;
+    bottom: 0px;
+    margin-top: 5px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url("http://s.glbimg.com/es/ge/static/live/cartolafc/img/widgets/header-fundo.jpg?2fa9a675a8a1")
+}
+
+#cartola-content
 {
     width: 100%;
     position: relative;
+    height: auto;
+    float: left;
+}
+
+#cartola-logo
+{
+    width: 122px;
+    height: 48px;
+    position: relative;
+    left: 4px;
+    top: 16px;
+    background-size: auto 100%;
+    background-image: url("http://s.glbimg.com/es/ge/static/live/cartolafc/img/widgets/logo.png");
+}
+
+.status-fechamento
+{
+    color: rgb(87, 43, 0);
+    float: left;
+    font-family: Sansation;
+    height: 61px;
+    width: 312px;
+    left: 131px;
+    top: -1px;
+    position: relative;
+}
+
+.status-fechamento .status
+{
+    width: 100%;
+    text-align: center;
+    font-size: 1.6em;
+}
+
+.status-fechamento .fechamento
+{
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 2px;
+}
+
+#buttons-bar
+{
+    width: 100%;
+    float: left;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+#buttons-bar .button
+{
+    float: left;
+    position: relative;
+    margin-left: 5px;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: ContinuumMedium;
+    padding: 4px 7px 0px 7px;
+    background-color: #666666;
+    background-repeat: repeat;
+    background-size: 26px 26px;
+    width: auto;
+    height: 26px;
+    border-radius: 3px;
+}
+
+#buttons-bar .disabled
+{
+    opacity: 0.3;
+    cursor: default;
+}
+
+#buttons-bar .search-cartola
+{
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+}
+
+#buttons-bar .list-cartola
+{
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+}
+
+#buttons-bar .ranking-cartola
+{
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+}
+
+#buttons-bar .search-cartola:hover
+{
+    background-color: #1B9656;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+}
+
+#buttons-bar .list-cartola:hover
+{
+    background-color: #0000A8;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+}
+
+#buttons-bar .ranking-cartola:hover
+{
+    background-color: #EAAF51;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+}
+
+#buttons-bar .disabled:hover
+{
+    opacity: 0.3;
+    background-color: #666666;
+}
+
+#buttons-bar .enabled:hover
+{
+    -webkit-animation: animate-bg 3s ease-out infinite;
+    -webkit-transition: background-color 0.3s ease-out;
+}
+
+#search-results
+{
+    width: 100%;
+    height: auto;
+    position: relative;
+    float: left;
 }
 
 #search-text
 {
-    border-radius: 3px;
-    border-width: 1px;
-    width: 140px;
-    height: 24px;
+    border: 1px solid #CCCCCC;
+    width: 310px;
+    height: 25px;
     padding: 0px 0px 0px 5px;
-    font-family: Ebrima;
-    font-size: 10pt;
+    font-family: ContinuumMedium;
+    font-size: 0.7em;
+    position: relative;
+    top: -2px;
+    border-radius: 0px 3px 3px 0px;
+}
+
+::-webkit-input-placeholder {
+    color:    #A4A4A4;
+    font-family: ContinuumMedium;
+    font-size: 1em;
+}
+
+#no-results
+{
+    float: left;
+    border-bottom-style: outset;
+    border-bottom-width: 1px;
+    width: 100%;
+    height: 33px;
+    position: relative;
     background-color: #F4F4F4;
 }
 
-.search-cartola
+#no-results span
 {
-    background-position: -327px -264px!important;
-    width: 26px;
-    height: 26px;
-    float: right;
+    width: 100%;
+    position: absolute;
+    font-family: Sansation;
+    font-size: 0.8em;
+    margin: 9px 0px 0px 0px;
+    text-align: center;
+    color: #666666;
+}
+
+#results-content
+{
+    float: left;
+    width: 100%;
     position: relative;
-    left: -201px;
-    cursor: default;
+    max-height: 185px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-bottom: -1px;
 }
 
-.search-cartola:HOVER
+#results-content:hover
 {
-    cursor: pointer;
+    overflow-y: overlay;
 }
 
-.results-row
+#show-more
+{
+    float: left;
+    border-bottom-style: outset;
+    border-bottom-width: 1px;
+    border-top-style: inset;
+    border-top-width: 1px;
+    width: 100%;
+    height: 33px;
+    position: relative;
+    background-color: #F4F4F4;
+}
+
+#results-row
 {
     list-style: none;
-    padding: 0px;
+    margin: 0px;
+    width: 434px;
+    position: relative;
+    left: -32px;
 }
 
-.results-row li
+#results-row li
 {
     width: 100%;
     height: 32px;
@@ -47,20 +281,20 @@
     border-bottom-width: 1px;
 }
 
-.hover-mask
+i.icon-check, i.icon-check-empty
 {
-    width: 100%;
-    height: 32px;
-    position: relative;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 30%, rgba(0,0,0,0.08) 100%);
-    opacity: 0;
+    position: relative!important;
+    right: 2px!important;
+    float: left;
+    cursor: pointer;
+    left: 165px;
+    font-size: 0.9em;
+    width: 11px;
 }
 
-.hover-mask:HOVER
+.checked
 {
-    opacity: 1;
-    cursor: pointer;
-    -webkit-transition: opacity 0.2s linear;
+    background-image: url("/imagens/checkbox_checked.png");
 }
 
 .cartola-badge
@@ -80,20 +314,20 @@
 
 .cartola-team
 {
-    font-family: Ebrima;
-    font-size: 14pt;
-    font-weight: bold;
     position: relative;
-    width: 170px;
+    width: 222px;
     height: 28px;
     float: left;
 }
 
 .cartola-team span
 {
+    font-family: ContinuumMedium;
+    font-size: 1.1em;
+    font-weight: bold;
     position: relative;
     left: 8px;
-    top: 0px;
+    top: 2px;
 }
 
 .cartola-owner
@@ -103,17 +337,151 @@
     background-position: 0px 4px;
     background-repeat: no-repeat;
     position: relative;
-    font-family: Ebrima;
-    font-size: 12px;
-    font-weight: normal;
-    width: 140px;
+    width: 181px;
     height: 28px;
     float: right;
 }
 
 .cartola-owner span
 {
+    font-family: ContinuumMedium;
+    font-size: 0.7em;
     position: relative;
     left: 26px;
-    top: 6px;
+    top: 8px;
+    overflow: hidden;
+}
+
+#list-results
+{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+#list-row
+{
+    list-style: none;
+    margin-top: 0px;
+    width: 100%;
+    position: relative;
+    left: -40px;
+}
+
+#list-row li
+{
+    width: 100%;
+    height: 32px;
+    padding-top: 4px;
+    border-bottom-style: outset;
+    border-bottom-width: 1px;
+}
+
+#ranking-results
+{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+#ranking-row
+{
+    list-style: none;
+    margin-top: 0px;
+    width: 100%;
+    position: relative;
+    left: -40px;
+}
+
+#ranking-row li
+{
+    width: 100%;
+    height: 32px;
+    padding-top: 4px;
+    border-bottom-style: outset;
+    border-bottom-width: 1px;
+}
+
+.title
+{
+    border-bottom-style: outset;
+    border-bottom-width: 1px;
+    border-top-style: inset;
+    border-top-width: 1px;
+    width: 100%;
+    height: 37px;
+    position: relative;
+    background-color: #F4F4F4;
+}
+
+.title span
+{
+    width: 100%;
+    position: absolute;
+    font-family: EASportsCoversSC;
+    font-size: 1.2em;
+    margin: 6px 0px 0px 0px;
+    text-align: center;
+    color: #666666;
+}
+
+.input-prepend
+{
+    font-size: 14px!important;
+    padding: 3px 6px 5px 6px;
+    text-align: center!important;
+    text-shadow: 0 1px 0 #FFFFFF;
+    background-color: #EEEEEE;
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 0px 0px 3px;
+    margin-right: -1px!important;
+    position: relative!important;
+    width: auto!important;
+    top: -7px;
+    left: 54px;
+    float: left;
+}
+
+.search-icon
+{
+    -webkit-transition: border linear .1s, box-shadow linear .1s;
+    position: absolute!important;
+    display: inline!important;
+    width: auto!important;
+    margin: -3px 0px 0px -23px!important;
+}
+
+.search-icon i
+{
+    font-size: 0.9em;
+    color: #CCCCCC;
+}
+
+li:hover
+{
+    box-shadow: inset 6px -9px 51px -9px #CCCCCC;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar
+{
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    background: rgba(0, 0, 0, 0.05);
+    -webkit-border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(0, 0, 0, 0.2)!important;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-track
+{
+    background: transparent;
 }

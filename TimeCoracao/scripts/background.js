@@ -28,9 +28,8 @@ function onMessage(request, sender, sendResponse)
             if(request.teamData !== "")
                 setTeamDefaultIcon(request.teamData.escudo_pequeno);
             else
-            {
                 setTeamDefaultIcon("");
-            }
+
             sendResponse(true);
 
             break;
@@ -60,6 +59,10 @@ function onMessage(request, sender, sendResponse)
             // Shows a badge with the team's position in the championship.
             // Exibe uma badge com a posição do time no campeonato.
             setTeamStatusBadge(request.team, request.rank);
+
+            break;
+        case "saveBookmarkCartola":
+            saveBookmarkCartola(request.teamData, request.salvar, sendResponse);
 
             break;
         default:
@@ -120,7 +123,7 @@ function getJSON(url, callback)
 {
     getHTML(url, function(responseText)
     {
-        if(responseText != undefined)
+        if(responseText !== undefined)
             callback(JSON.parse(parseUnicodePtBr(responseText)));
         else
             callback("error");
@@ -145,6 +148,39 @@ function getHTML(url, callback)
     };
 
     xhr.send();
+}
+
+function saveBookmarkCartola(teamData, salvar, callback)
+{
+    var bookmarkCartola = recoverLSData("bookmarkCartola", true);
+    var indexTeam = -1;
+
+    if(bookmarkCartola === undefined)
+        bookmarkCartola = [];
+
+    for(var index = 0; index < bookmarkCartola.length; index++)
+    {
+        if(teamData.slug === bookmarkCartola[index].slug)
+        {
+            indexTeam = index;
+            break;
+        }
+    }
+
+    if(salvar)
+    {
+        if(indexTeam < 0)
+            bookmarkCartola.push(teamData);
+    }
+    else
+    {
+        if(indexTeam >= 0)
+            bookmarkCartola.splice(indexTeam, 1);
+    }
+
+    new LocalStorage().set("bookmarkCartola", JSON.stringify(bookmarkCartola));
+
+    callback(bookmarkCartola);
 }
 
 function parseUnicodePtBr(data)

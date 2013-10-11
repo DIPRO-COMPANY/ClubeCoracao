@@ -1,11 +1,5 @@
 @font-face
 {
-    font-family: QuickExpress;
-    src: url("/estilo/fonts/QuickExpress.ttf");
-}
-
-@font-face
-{
     font-family: ContinuumMedium;
     src: url("/estilo/fonts/ContinuumMedium.ttf");
 }
@@ -18,9 +12,24 @@
 
 @font-face
 {
+    font-family: Sansation;
+    src: url("/estilo/fonts/SansationRegular.ttf");
+}
+
+@font-face
+{
     font-family: EASportsCoversSC;
     src: url("/estilo/fonts/EASports.ttf");
 }
+
+body
+{
+    height: auto;
+    position: relative;
+    float: left;
+}
+
+*{outline :none}
 
 .loading
 {
@@ -40,4 +49,33 @@
     top: 47%;
     left: 47%;
     position: relative;
+}
+
+.display-block
+{
+    display: block!important;
+}
+
+.display-none
+{
+    display: none;
+}
+.align-left
+{
+    text-align: left;
+}
+
+.align-right
+{
+    text-align: right;
+}
+
+.text-bold
+{
+    font-weight: bold;
+}
+
+.hidden
+{
+    visibility: hidden!important;
 }

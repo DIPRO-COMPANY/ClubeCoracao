@@ -11,27 +11,32 @@ function loadPage(teamData)
 {
     var cssHome = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/home.css\" id=\"homeCSS\">";
     var cssInfo = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/info.css\" id=\"infoCSS\">";
+    var cssCart = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/estilo/cartola.css\" id=\"cartCSS\">";
 
     // Removes the css style sheets in the popup html file.
     // Remove as folhas de estilo da popup.html.
     $("#homeCSS").remove();
     $("#infoCSS").remove();
+    $("#cartCSS").remove();
 
     if(teamData === "")
     {
         $(cssHome).appendTo("head");
 
-        // Load the select teams page and execute the mainHome function inside the home.js.
-        // Carrega a página de seleção de times e executa a função mainHome dentro do home.js.
         $("body").load("home.html", function(){ mainHome(); });
     }
-    else
+    else if(typeof teamData === "object")
     {
         $(cssInfo).appendTo("head");
 
-        // Load the info page about the selected team and execute the mainInfo function inside the info.js.
-        // Carrega a página de informação do time e executa a função mainInfo dentro do info.js.
         $("body").load("info.html", function(){ mainInfo(teamData); });
+    }
+    else if(teamData === "cartola")
+    {
+        $(cssCart).appendTo("head");
+
+        $("body").load("cartola.html", function(){ mainCartola(); });
+
     }
 }
 
